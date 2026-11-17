@@ -1,6 +1,7 @@
 // flatten rewrites SVD files in place so gen-device-svd can generate every
-// register. It expands registers that use derivedFrom into full copies, and
-// moves clusters nested in an arrayed cluster up into their parent.
+// register. It expands registers that use derivedFrom into full copies, moves
+// clusters nested in an arrayed cluster up into their parent, and splits
+// groups whose peripherals have different registers.
 //
 // Usage: go run flatten/main.go svd/<chip>.svd...
 package main
@@ -68,6 +69,7 @@ func flattenFile(path string) error {
 			return fmt.Errorf("%s: %w", p.text("name"), err)
 		}
 	}
+	splitGroups(peripherals)
 	var out bytes.Buffer
 	root.write(&out)
 	return os.WriteFile(path, out.Bytes(), 0o644)
@@ -165,6 +167,51 @@ func expandDerived(block *node, peripherals map[string]*node) error {
 		block.children[i] = copied
 	}
 	return nil
+}
+
+// splitGroups gives a peripheral its own groupName when its registers differ
+// from the peripheral that owns the group, as gen-device-svd shares one type per group.
+func splitGroups(peripherals *node) {
+	groups := map[string][]*node{}
+	var order []string
+	for _, p := range peripherals.elements("peripheral") {
+		g := p.text("groupName")
+		if g == "" || p.attr("derivedFrom") != "" {
+			continue
+		}
+		if _, ok := groups[g]; !ok {
+			order = append(order, g)
+		}
+		groups[g] = append(groups[g], p)
+	}
+	for _, g := range order {
+		members := groups[g]
+		owner := members[0]
+		for _, p := range members {
+			if p.text("name") == g {
+				owner = p
+			}
+		}
+		for _, p := range members {
+			if p != owner && layout(p.child("registers")) != layout(owner.child("registers")) {
+				p.setText("groupName", p.text("name"))
+			}
+		}
+	}
+}
+
+// layout describes the registers and clusters in n by name and offset.
+func layout(n *node) string {
+	if n == nil {
+		return ""
+	}
+	var b strings.Builder
+	for _, c := range n.children {
+		if c.name == "register" || c.name == "cluster" {
+			fmt.Fprintf(&b, "%s %s %s (%s) ", c.name, c.text("name"), c.text("addressOffset"), layout(c))
+		}
+	}
+	return b.String()
 }
 
 // findRegister looks up a derivedFrom path. A single name is a sibling in the

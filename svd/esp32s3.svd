@@ -11367,7 +11367,7 @@
     <peripheral>
       <name>FE2</name>
       <description>need des</description>
-      <groupName>FE</groupName>
+      <groupName>FE2</groupName>
       <baseAddress>0x60005000</baseAddress>
       <addressBlock>
         <offset>0x0</offset>
@@ -14451,7 +14451,7 @@ level.</description>
     <peripheral>
       <name>I2S1</name>
       <description>I2S (Inter-IC Sound) Controller 1</description>
-      <groupName>I2S</groupName>
+      <groupName>I2S1</groupName>
       <baseAddress>0x6002D000</baseAddress>
       <addressBlock>
         <offset>0x0</offset>
@@ -38357,7 +38357,7 @@ IDINTEN[4]: DU Interrupt.</description>
     <peripheral>
       <name>SPI1</name>
       <description>SPI (Serial Peripheral Interface) Controller 1</description>
-      <groupName>SPI</groupName>
+      <groupName>SPI1</groupName>
       <baseAddress>0x60002000</baseAddress>
       <addressBlock>
         <offset>0x0</offset>
@@ -39566,7 +39566,7 @@ IDINTEN[4]: DU Interrupt.</description>
     <peripheral>
       <name>SPI2</name>
       <description>SPI (Serial Peripheral Interface) Controller 2</description>
-      <groupName>SPI</groupName>
+      <groupName>SPI2</groupName>
       <baseAddress>0x60024000</baseAddress>
       <addressBlock>
         <offset>0x0</offset>
