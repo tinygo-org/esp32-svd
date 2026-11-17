@@ -18523,7 +18523,7 @@ Only valid for DMA-AES operation.</description>
             </field>
             <field>
               <name>TX_EOF_MODE</name>
-              <description>write this bit to ser the bitscrambler tx core EOF signal generating mode which is combined with reg_bitscrambler_tx_tailing_bits, 0: counter by read dma fifo, 0 counter by write peripheral buffer</description>
+              <description>Selects how TX counts trailing bits after input EOF. 0: count bits read from the DMA FIFO. 1: count bits written to the peripheral buffer.</description>
               <bitOffset>3</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
@@ -18595,7 +18595,7 @@ Only valid for DMA-AES operation.</description>
             </field>
             <field>
               <name>RX_EOF_MODE</name>
-              <description>write this bit to ser the bitscrambler rx core EOF signal generating mode which is combined with reg_bitscrambler_rx_tailing_bits, 0: counter by read peripheral buffer, 0 counter by write dma fifo</description>
+              <description>Selects how RX counts trailing bits after input EOF. 0: count bits read from the peripheral buffer. 1: count bits written to the DMA FIFO.</description>
               <bitOffset>3</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
@@ -32692,6 +32692,11 @@ Bit 0: invert the entire output for pad 1</description>
                   <description>P-384 elliptic curve</description>
                   <value>2</value>
                 </enumeratedValue>
+                <enumeratedValue>
+                  <name>SM2</name>
+                  <description>SM2 elliptic curve</description>
+                  <value>3</value>
+                </enumeratedValue>
               </enumeratedValues>
             </field>
             <field>
@@ -45704,15 +45709,15 @@ bit1: 1 represents space_exception  \\</description>
           </fields>
         </register>
         <register>
-          <name>HP_BITSRAMBLER_CTRL</name>
-          <description>hp_bitsrambler read/write control register</description>
+          <name>HP_BITSCRAMBLER_CTRL</name>
+          <description>hp_bitscrambler read/write control register</description>
           <addressOffset>0x44</addressOffset>
           <size>0x20</size>
           <resetValue>0x00000011</resetValue>
           <fields>
             <field>
-              <name>READ_TEE_HP_BITSRAMBLER</name>
-              <description>Configures hp_bitsrambler registers read permission in tee mode.\\
+              <name>READ_TEE_HP_BITSCRAMBLER</name>
+              <description>Configures hp_bitscrambler registers read permission in tee mode.\\
 0: can not be read \\
 1: can be read \\</description>
               <bitOffset>0</bitOffset>
@@ -45720,8 +45725,8 @@ bit1: 1 represents space_exception  \\</description>
               <access>read-write</access>
             </field>
             <field>
-              <name>READ_REE0_HP_BITSRAMBLER</name>
-              <description>Configures hp_bitsrambler registers read permission in ree0 mode.\\
+              <name>READ_REE0_HP_BITSCRAMBLER</name>
+              <description>Configures hp_bitscrambler registers read permission in ree0 mode.\\
 0: can not be read \\
 1: can be read \\</description>
               <bitOffset>1</bitOffset>
@@ -45729,8 +45734,8 @@ bit1: 1 represents space_exception  \\</description>
               <access>read-write</access>
             </field>
             <field>
-              <name>READ_REE1_HP_BITSRAMBLER</name>
-              <description>Configures hp_bitsrambler registers read permission in ree1 mode.\\
+              <name>READ_REE1_HP_BITSCRAMBLER</name>
+              <description>Configures hp_bitscrambler registers read permission in ree1 mode.\\
 0: can not be read \\
 1: can be read \\</description>
               <bitOffset>2</bitOffset>
@@ -45738,8 +45743,8 @@ bit1: 1 represents space_exception  \\</description>
               <access>read-write</access>
             </field>
             <field>
-              <name>READ_REE2_HP_BITSRAMBLER</name>
-              <description>Configures hp_bitsrambler registers read permission in ree2 mode.\\
+              <name>READ_REE2_HP_BITSCRAMBLER</name>
+              <description>Configures hp_bitscrambler registers read permission in ree2 mode.\\
 0: can not be read \\
 1: can be read \\</description>
               <bitOffset>3</bitOffset>
@@ -45747,8 +45752,8 @@ bit1: 1 represents space_exception  \\</description>
               <access>read-write</access>
             </field>
             <field>
-              <name>WRITE_TEE_HP_BITSRAMBLER</name>
-              <description>Configures hp_bitsrambler registers write permission in tee mode.\\
+              <name>WRITE_TEE_HP_BITSCRAMBLER</name>
+              <description>Configures hp_bitscrambler registers write permission in tee mode.\\
 0: can not be write \\
 1: can be write \\</description>
               <bitOffset>4</bitOffset>
@@ -45756,8 +45761,8 @@ bit1: 1 represents space_exception  \\</description>
               <access>read-write</access>
             </field>
             <field>
-              <name>WRITE_REE0_HP_BITSRAMBLER</name>
-              <description>Configures hp_bitsrambler registers write permission in ree0 mode.\\
+              <name>WRITE_REE0_HP_BITSCRAMBLER</name>
+              <description>Configures hp_bitscrambler registers write permission in ree0 mode.\\
 0: can not be write \\
 1: can be write \\</description>
               <bitOffset>5</bitOffset>
@@ -45765,8 +45770,8 @@ bit1: 1 represents space_exception  \\</description>
               <access>read-write</access>
             </field>
             <field>
-              <name>WRITE_REE1_HP_BITSRAMBLER</name>
-              <description>Configures hp_bitsrambler registers write permission in ree1 mode.\\
+              <name>WRITE_REE1_HP_BITSCRAMBLER</name>
+              <description>Configures hp_bitscrambler registers write permission in ree1 mode.\\
 0: can not be write \\
 1: can be write \\</description>
               <bitOffset>6</bitOffset>
@@ -45774,8 +45779,8 @@ bit1: 1 represents space_exception  \\</description>
               <access>read-write</access>
             </field>
             <field>
-              <name>WRITE_REE2_HP_BITSRAMBLER</name>
-              <description>Configures hp_bitsrambler registers write permission in ree2 mode.\\
+              <name>WRITE_REE2_HP_BITSCRAMBLER</name>
+              <description>Configures hp_bitscrambler registers write permission in ree2 mode.\\
 0: can not be write \\
 1: can be write \\</description>
               <bitOffset>7</bitOffset>
@@ -45783,8 +45788,8 @@ bit1: 1 represents space_exception  \\</description>
               <access>read-write</access>
             </field>
             <field>
-              <name>HP_BITSRAMBLER_LOCK</name>
-              <description>Set 1 to lock hp_bitsrambler peri_apm configuration</description>
+              <name>HP_BITSCRAMBLER_LOCK</name>
+              <description>Set 1 to lock hp_bitscrambler peri_apm configuration</description>
               <bitOffset>8</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
@@ -56640,7 +56645,7 @@ bit1: 1 represents space_exception  \\</description>
           </fields>
         </register>
         <register>
-          <name>BITSRAMBLER_CTRL0</name>
+          <name>BITSCRAMBLER_CTRL0</name>
           <description>need_des</description>
           <addressOffset>0xA4</addressOffset>
           <size>0x20</size>
@@ -117402,46 +117407,25 @@ SHA2-512 : 0x00~0x80 \\</description>
           <description>MSPI-MMU item content register</description>
           <addressOffset>0x37C</addressOffset>
           <size>0x20</size>
-          <resetValue>0x0000037C</resetValue>
+          <resetValue>0x00000000</resetValue>
           <fields>
             <field>
               <name>PADDR</name>
               <description>Physical page number</description>
               <bitOffset>0</bitOffset>
-              <bitWidth>10</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>ACCESS_SPIRAM</name>
-              <description>Map to SPIRAM/PSRAM when set (flash when clear)</description>
-              <bitOffset>10</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>SPIRAM_VALID</name>
-              <description>Entry is valid when set (SPIRAM MMU)</description>
-              <bitOffset>11</bitOffset>
-              <bitWidth>1</bitWidth>
+              <bitWidth>11</bitWidth>
               <access>read-write</access>
             </field>
             <field>
               <name>VALID</name>
-              <description>Entry is valid when set (flash MMU)</description>
-              <bitOffset>12</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>SPIRAM_SENSITIVE</name>
-              <description>Decrypt via cache encryption when set (SPIRAM MMU)</description>
+              <description>Entry is valid when set</description>
               <bitOffset>12</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
               <name>SENSITIVE</name>
-              <description>Decrypt via flash encryption when set (flash MMU)</description>
+              <description>Decrypt via flash encryption when set</description>
               <bitOffset>13</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
@@ -121713,7 +121697,7 @@ SHA2-512 : 0x00~0x80 \\</description>
           <description>MSPI-MMU item content register</description>
           <addressOffset>0x37C</addressOffset>
           <size>0x20</size>
-          <resetValue>0x0000037C</resetValue>
+          <resetValue>0x00000000</resetValue>
           <fields>
             <field>
               <name>PADDR</name>
@@ -121730,30 +121714,16 @@ SHA2-512 : 0x00~0x80 \\</description>
               <access>read-write</access>
             </field>
             <field>
-              <name>SPIRAM_VALID</name>
-              <description>Entry is valid when set (SPIRAM MMU)</description>
+              <name>VALID</name>
+              <description>Entry is valid when set</description>
               <bitOffset>11</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>VALID</name>
-              <description>Entry is valid when set (flash MMU)</description>
-              <bitOffset>12</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>SPIRAM_SENSITIVE</name>
-              <description>Decrypt via cache encryption when set (SPIRAM MMU)</description>
-              <bitOffset>12</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
               <name>SENSITIVE</name>
-              <description>Decrypt via flash encryption when set (flash MMU)</description>
-              <bitOffset>13</bitOffset>
+              <description>Decrypt via cache encryption when set</description>
+              <bitOffset>12</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>

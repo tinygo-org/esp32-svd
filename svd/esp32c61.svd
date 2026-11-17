@@ -22612,21 +22612,6 @@ Measurement unit: i2c_sclk \\</description>
           </fields>
         </register>
         <register>
-          <name>RNG_DATA</name>
-          <description>need_des</description>
-          <addressOffset>0x8</addressOffset>
-          <size>0x20</size>
-          <fields>
-            <field>
-              <name>RND_DATA</name>
-              <description>need_des</description>
-              <bitOffset>0</bitOffset>
-              <bitWidth>32</bitWidth>
-              <access>read-only</access>
-            </field>
-          </fields>
-        </register>
-        <register>
           <name>CPU</name>
           <description>need_des</description>
           <addressOffset>0xC</addressOffset>
@@ -22775,7 +22760,7 @@ Measurement unit: i2c_sclk \\</description>
           </fields>
         </register>
         <register>
-          <name>RNG_DATA_SYNC</name>
+          <name>RNG_DATA</name>
           <description>need_des</description>
           <addressOffset>0x28</addressOffset>
           <size>0x20</size>
@@ -45603,7 +45588,7 @@ This bit is automatically cleared when configurations have been updated.\\</desc
           <description>MSPI-MMU item content register</description>
           <addressOffset>0x37C</addressOffset>
           <size>0x20</size>
-          <resetValue>0x0000037C</resetValue>
+          <resetValue>0x00000000</resetValue>
           <fields>
             <field>
               <name>PADDR</name>

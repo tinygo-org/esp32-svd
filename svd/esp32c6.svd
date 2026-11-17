@@ -50436,7 +50436,7 @@ Any pulses with width less than this will be ignored when the filter is enabled.
           <description>MSPI-MMU item content register</description>
           <addressOffset>0x37C</addressOffset>
           <size>0x20</size>
-          <resetValue>0x0000037C</resetValue>
+          <resetValue>0x00000000</resetValue>
           <fields>
             <field>
               <name>PADDR</name>
@@ -52926,7 +52926,7 @@ Any pulses with width less than this will be ignored when the filter is enabled.
           <description>MSPI-MMU item content register</description>
           <addressOffset>0x37C</addressOffset>
           <size>0x20</size>
-          <resetValue>0x0000037C</resetValue>
+          <resetValue>0x00000000</resetValue>
           <fields>
             <field>
               <name>PADDR</name>

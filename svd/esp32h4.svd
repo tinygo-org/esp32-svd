@@ -48688,22 +48688,6 @@ Measurement unit: clk_div\\</description>
       </addressBlock>
       <registers>
         <register>
-          <name>DATA</name>
-          <description>RNG result register</description>
-          <addressOffset>0x0</addressOffset>
-          <size>0x20</size>
-          <access>read-only</access>
-          <fields>
-            <field>
-              <name>RND_DATA</name>
-              <description>get rng data</description>
-              <bitOffset>0</bitOffset>
-              <bitWidth>32</bitWidth>
-              <access>read-only</access>
-            </field>
-          </fields>
-        </register>
-        <register>
           <name>CFG</name>
           <description>configure rng register</description>
           <addressOffset>0x4</addressOffset>
@@ -48748,7 +48732,7 @@ Measurement unit: clk_div\\</description>
           </fields>
         </register>
         <register>
-          <name>DATA_SYNC</name>
+          <name>DATA</name>
           <description>rng result sync register</description>
           <addressOffset>0x8</addressOffset>
           <size>0x20</size>
@@ -55100,14 +55084,14 @@ SHA2-512 : 0x00~0x80 \\</description>
               <access>read-write</access>
             </field>
             <field>
-              <name>SPI_AR_SIZE0_1_SUPPORT_EN</name>
+              <name>AR_SIZE0_1_SUPPORT_EN</name>
               <description>1: MSPI supports ARSIZE 0~3. When ARSIZE =0~2, MSPI read address is 4*n and reply the real AXI read data back. 0: When ARSIZE 0~1, MSPI reply SLV_ERR.</description>
               <bitOffset>22</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>SPI_AW_SIZE0_1_SUPPORT_EN</name>
+              <name>AW_SIZE0_1_SUPPORT_EN</name>
               <description>1: MSPI supports AWSIZE 0~3. 0: When AWSIZE 0~1, MSPI reply SLV_ERR.</description>
               <bitOffset>23</bitOffset>
               <bitWidth>1</bitWidth>
@@ -55505,14 +55489,14 @@ SHA2-512 : 0x00~0x80 \\</description>
               <access>read-write</access>
             </field>
             <field>
-              <name>SPI_SAME_AW_AR_ADDR_CHK_EN</name>
+              <name>SAME_AW_AR_ADDR_CHK_EN</name>
               <description>Set this bit to check AXI read/write the same address region.</description>
               <bitOffset>30</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-only</access>
             </field>
             <field>
-              <name>SPI_CLOSE_AXI_INF_EN</name>
+              <name>CLOSE_AXI_INF_EN</name>
               <description>Set this bit to close AXI read/write transfer to MSPI, which means that only SLV_ERR will be replied to BRESP/RRESP.</description>
               <bitOffset>31</bitOffset>
               <bitWidth>1</bitWidth>
@@ -55719,14 +55703,14 @@ SHA2-512 : 0x00~0x80 \\</description>
               <access>read-write</access>
             </field>
             <field>
-              <name>SPI_SMEM_WDUMMY_DQS_ALWAYS_OUT</name>
+              <name>SMEM_WDUMMY_DQS_ALWAYS_OUT</name>
               <description>In the dummy phase of an MSPI write data transfer when accesses to external RAM, the level of SPI_DQS is output by the MSPI controller.</description>
               <bitOffset>24</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>SPI_SMEM_WDUMMY_ALWAYS_OUT</name>
+              <name>SMEM_WDUMMY_ALWAYS_OUT</name>
               <description>In the dummy phase of an MSPI write data transfer when accesses to external RAM, the level of SPI_IO[7:0] is output by the MSPI controller.</description>
               <bitOffset>25</bitOffset>
               <bitWidth>1</bitWidth>
@@ -55747,14 +55731,14 @@ SHA2-512 : 0x00~0x80 \\</description>
               <access>read-only</access>
             </field>
             <field>
-              <name>SPI_SMEM_DQS_IE_ALWAYS_ON</name>
+              <name>SMEM_DQS_IE_ALWAYS_ON</name>
               <description>When accesses to external RAM, 1: the IE signals of pads connected to SPI_DQS are always 1. 0: Others.</description>
               <bitOffset>30</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>SPI_SMEM_DATA_IE_ALWAYS_ON</name>
+              <name>SMEM_DATA_IE_ALWAYS_ON</name>
               <description>When accesses to external RAM, 1: the IE signals of pads connected to SPI_IO[7:0] are always 1. 0: Others.</description>
               <bitOffset>31</bitOffset>
               <bitWidth>1</bitWidth>
@@ -56232,112 +56216,112 @@ SHA2-512 : 0x00~0x80 \\</description>
           <resetValue>0x00003020</resetValue>
           <fields>
             <field>
-              <name>SPI_FMEM_DDR_EN</name>
+              <name>FMEM_DDR_EN</name>
               <description>1: in DDR mode,  0 in SDR mode</description>
               <bitOffset>0</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>SPI_FMEM_VAR_DUMMY</name>
+              <name>FMEM_VAR_DUMMY</name>
               <description>Set the bit to enable variable dummy cycle in spi DDR mode.</description>
               <bitOffset>1</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>SPI_FMEM_DDR_RDAT_SWP</name>
+              <name>FMEM_DDR_RDAT_SWP</name>
               <description>Set the bit to reorder rx data of the word in spi DDR mode.</description>
               <bitOffset>2</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>SPI_FMEM_DDR_WDAT_SWP</name>
+              <name>FMEM_DDR_WDAT_SWP</name>
               <description>Set the bit to reorder tx data of the word in spi DDR mode.</description>
               <bitOffset>3</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>SPI_FMEM_DDR_CMD_DIS</name>
+              <name>FMEM_DDR_CMD_DIS</name>
               <description>the bit is used to disable dual edge in command phase when DDR mode.</description>
               <bitOffset>4</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>SPI_FMEM_OUTMINBYTELEN</name>
+              <name>FMEM_OUTMINBYTELEN</name>
               <description>It is the minimum output data length in the panda device.</description>
               <bitOffset>5</bitOffset>
               <bitWidth>7</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>SPI_FMEM_TX_DDR_MSK_EN</name>
+              <name>FMEM_TX_DDR_MSK_EN</name>
               <description>Set this bit to mask the first or the last byte in SPI0 ECC DDR write mode, when accesses to flash.</description>
               <bitOffset>12</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>SPI_FMEM_RX_DDR_MSK_EN</name>
+              <name>FMEM_RX_DDR_MSK_EN</name>
               <description>Set this bit to mask the first or the last byte in SPI0 ECC DDR read mode, when accesses to flash.</description>
               <bitOffset>13</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>SPI_FMEM_USR_DDR_DQS_THD</name>
+              <name>FMEM_USR_DDR_DQS_THD</name>
               <description>The delay number of data strobe which from memory based on SPI clock.</description>
               <bitOffset>14</bitOffset>
               <bitWidth>7</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>SPI_FMEM_DDR_DQS_LOOP</name>
+              <name>FMEM_DDR_DQS_LOOP</name>
               <description>1: Do not need the input of SPI_DQS signal, SPI0 starts to receive data when spi0_slv_st is in SPI_MEM_DIN state. It is used when there is no SPI_DQS signal or SPI_DQS signal is not stable. 0: SPI0 starts to store data at the positive and negative edge of SPI_DQS.</description>
               <bitOffset>21</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>SPI_FMEM_CLK_DIFF_EN</name>
+              <name>FMEM_CLK_DIFF_EN</name>
               <description>Set this bit to enable the differential SPI_CLK#.</description>
               <bitOffset>24</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>SPI_FMEM_DQS_CA_IN</name>
+              <name>FMEM_DQS_CA_IN</name>
               <description>Set this bit to enable the input of SPI_DQS signal in SPI phases of CMD and ADDR.</description>
               <bitOffset>26</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>SPI_FMEM_HYPERBUS_DUMMY_2X</name>
+              <name>FMEM_HYPERBUS_DUMMY_2X</name>
               <description>Set this bit to enable the vary dummy function in SPI HyperBus mode, when SPI0 accesses flash or SPI1 accesses flash or sram.</description>
               <bitOffset>27</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>SPI_FMEM_CLK_DIFF_INV</name>
+              <name>FMEM_CLK_DIFF_INV</name>
               <description>Set this bit to invert SPI_DIFF when accesses to flash. .</description>
               <bitOffset>28</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>SPI_FMEM_OCTA_RAM_ADDR</name>
+              <name>FMEM_OCTA_RAM_ADDR</name>
               <description>Set this bit to enable octa_ram address out when accesses to flash, which means ADDR_OUT[31:0] = {spi_usr_addr_value[25:4], 6'd0, spi_usr_addr_value[3:1], 1'b0}.</description>
               <bitOffset>29</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>SPI_FMEM_HYPERBUS_CA</name>
+              <name>FMEM_HYPERBUS_CA</name>
               <description>Set this bit to enable HyperRAM address out when accesses to flash, which means ADDR_OUT[31:0] = {spi_usr_addr_value[19:4], 13'd0, spi_usr_addr_value[3:1]}.</description>
               <bitOffset>30</bitOffset>
               <bitWidth>1</bitWidth>
@@ -56346,7 +56330,7 @@ SHA2-512 : 0x00~0x80 \\</description>
           </fields>
         </register>
         <register>
-          <name>SPI_SMEM_DDR</name>
+          <name>SMEM_DDR</name>
           <description>SPI0 external RAM DDR mode control register</description>
           <addressOffset>0xD8</addressOffset>
           <size>0x20</size>
@@ -56360,7 +56344,7 @@ SHA2-512 : 0x00~0x80 \\</description>
               <access>read-write</access>
             </field>
             <field>
-              <name>SPI_SMEM_VAR_DUMMY</name>
+              <name>SMEM_VAR_DUMMY</name>
               <description>Set the bit to enable variable dummy cycle in spi DDR mode.</description>
               <bitOffset>1</bitOffset>
               <bitWidth>1</bitWidth>
@@ -56388,28 +56372,28 @@ SHA2-512 : 0x00~0x80 \\</description>
               <access>read-write</access>
             </field>
             <field>
-              <name>SPI_SMEM_OUTMINBYTELEN</name>
+              <name>SMEM_OUTMINBYTELEN</name>
               <description>It is the minimum output data length in the DDR psram.</description>
               <bitOffset>5</bitOffset>
               <bitWidth>7</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>SPI_SMEM_TX_DDR_MSK_EN</name>
+              <name>SMEM_TX_DDR_MSK_EN</name>
               <description>Set this bit to mask the first or the last byte in SPI0 ECC DDR write mode, when accesses to external RAM.</description>
               <bitOffset>12</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>SPI_SMEM_RX_DDR_MSK_EN</name>
+              <name>SMEM_RX_DDR_MSK_EN</name>
               <description>Set this bit to mask the first or the last byte in SPI0 ECC DDR read mode, when accesses to external RAM.</description>
               <bitOffset>13</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>SPI_SMEM_USR_DDR_DQS_THD</name>
+              <name>SMEM_USR_DDR_DQS_THD</name>
               <description>The delay number of data strobe which from memory based on SPI clock.</description>
               <bitOffset>14</bitOffset>
               <bitWidth>7</bitWidth>
@@ -56423,42 +56407,42 @@ SHA2-512 : 0x00~0x80 \\</description>
               <access>read-write</access>
             </field>
             <field>
-              <name>SPI_SMEM_CLK_DIFF_EN</name>
+              <name>SMEM_CLK_DIFF_EN</name>
               <description>Set this bit to enable the differential SPI_CLK#.</description>
               <bitOffset>24</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>SPI_SMEM_DQS_CA_IN</name>
+              <name>SMEM_DQS_CA_IN</name>
               <description>Set this bit to enable the input of SPI_DQS signal in SPI phases of CMD and ADDR.</description>
               <bitOffset>26</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>SPI_SMEM_HYPERBUS_DUMMY_2X</name>
+              <name>SMEM_HYPERBUS_DUMMY_2X</name>
               <description>Set this bit to enable the vary dummy function in SPI HyperBus mode, when SPI0 accesses flash or SPI1 accesses flash or sram.</description>
               <bitOffset>27</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>SPI_SMEM_CLK_DIFF_INV</name>
+              <name>SMEM_CLK_DIFF_INV</name>
               <description>Set this bit to invert SPI_DIFF when accesses to external RAM. .</description>
               <bitOffset>28</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>SPI_SMEM_OCTA_RAM_ADDR</name>
+              <name>SMEM_OCTA_RAM_ADDR</name>
               <description>Set this bit to enable octa_ram address out when accesses to external RAM, which means ADDR_OUT[31:0] = {spi_usr_addr_value[25:4], 6'd0, spi_usr_addr_value[3:1], 1'b0}.</description>
               <bitOffset>29</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>SPI_SMEM_HYPERBUS_CA</name>
+              <name>SMEM_HYPERBUS_CA</name>
               <description>Set this bit to enable HyperRAM address out when accesses to external RAM, which means ADDR_OUT[31:0] = {spi_usr_addr_value[19:4], 13'd0, spi_usr_addr_value[3:1]}.</description>
               <bitOffset>30</bitOffset>
               <bitWidth>1</bitWidth>
@@ -56467,49 +56451,49 @@ SHA2-512 : 0x00~0x80 \\</description>
           </fields>
         </register>
         <register>
-          <name>SPI_FMEM_PMS0_ATTR</name>
+          <name>FMEM_PMS0_ATTR</name>
           <description>MSPI flash PMS section $n attribute register</description>
           <addressOffset>0x100</addressOffset>
           <size>0x20</size>
           <resetValue>0x0000001B</resetValue>
           <fields>
             <field>
-              <name>SPI_FMEM_PMS0_RD_ATTR</name>
+              <name>FMEM_PMS0_RD_ATTR</name>
               <description>1: SPI1 flash PMS section 0 read accessible. 0: Not allowed.</description>
               <bitOffset>0</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>SPI_FMEM_PMS0_WR_ATTR</name>
+              <name>FMEM_PMS0_WR_ATTR</name>
               <description>1: SPI1 flash PMS section 0 write accessible. 0: Not allowed.</description>
               <bitOffset>1</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>SPI_FMEM_PMS0_ECC</name>
+              <name>FMEM_PMS0_ECC</name>
               <description>SPI1 flash PMS section 0 ECC mode, 1: enable ECC mode. 0: Disable it. The flash PMS section 0 is configured by registers SPI_FMEM_PMS0_ADDR_REG and SPI_FMEM_PMS0_SIZE_REG.</description>
               <bitOffset>2</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>SPI_FMEM_PMS0_NONSECURE_RD_ATTR</name>
+              <name>FMEM_PMS0_NONSECURE_RD_ATTR</name>
               <description>1: SPI1 flash  non-secure PMS section 0 read accessible. 0: Not allowed.</description>
               <bitOffset>3</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>SPI_FMEM_PMS0_NONSECURE_WR_ATTR</name>
+              <name>FMEM_PMS0_NONSECURE_WR_ATTR</name>
               <description>1: SPI1 flash non-secure PMS section 0 write accessible. 0: Not allowed.</description>
               <bitOffset>4</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>SPI_FMEM_PMS0_NONSECURE_ECC</name>
+              <name>FMEM_PMS0_NONSECURE_ECC</name>
               <description>SPI1 flash non-secure PMS section 0 ECC mode, 1: enable ECC mode. 0: Disable it. The flash PMS section 0 is configured by registers SPI_FMEM_PMS0_ADDR_REG and SPI_FMEM_PMS0_SIZE_REG.</description>
               <bitOffset>5</bitOffset>
               <bitWidth>1</bitWidth>
@@ -56518,49 +56502,49 @@ SHA2-512 : 0x00~0x80 \\</description>
           </fields>
         </register>
         <register>
-          <name>SPI_FMEM_PMS1_ATTR</name>
+          <name>FMEM_PMS1_ATTR</name>
           <description>SPI1 flash PMS section $n attribute register</description>
           <addressOffset>0x104</addressOffset>
           <size>0x20</size>
           <resetValue>0x0000001B</resetValue>
           <fields>
             <field>
-              <name>SPI_FMEM_PMS1_RD_ATTR</name>
+              <name>FMEM_PMS1_RD_ATTR</name>
               <description>1: SPI1 flash PMS section 1 read accessible. 0: Not allowed.</description>
               <bitOffset>0</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>SPI_FMEM_PMS1_WR_ATTR</name>
+              <name>FMEM_PMS1_WR_ATTR</name>
               <description>1: SPI1 flash PMS section 1 write accessible. 0: Not allowed.</description>
               <bitOffset>1</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>SPI_FMEM_PMS1_ECC</name>
+              <name>FMEM_PMS1_ECC</name>
               <description>SPI1 flash PMS section 1 ECC mode, 1: enable ECC mode. 0: Disable it. The flash PMS section 1 is configured by registers SPI_FMEM_PMS1_ADDR_REG and SPI_FMEM_PMS1_SIZE_REG.</description>
               <bitOffset>2</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>SPI_FMEM_PMS1_NONSECURE_RD_ATTR</name>
+              <name>FMEM_PMS1_NONSECURE_RD_ATTR</name>
               <description>1: SPI1 flash  non-secure PMS section 1 read accessible. 0: Not allowed.</description>
               <bitOffset>3</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>SPI_FMEM_PMS1_NONSECURE_WR_ATTR</name>
+              <name>FMEM_PMS1_NONSECURE_WR_ATTR</name>
               <description>1: SPI1 flash non-secure PMS section 1 write accessible. 0: Not allowed.</description>
               <bitOffset>4</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>SPI_FMEM_PMS1_NONSECURE_ECC</name>
+              <name>FMEM_PMS1_NONSECURE_ECC</name>
               <description>SPI1 flash non-secure PMS section 1 ECC mode, 1: enable ECC mode. 0: Disable it. The flash PMS section 1 is configured by registers SPI_FMEM_PMS1_ADDR_REG and SPI_FMEM_PMS1_SIZE_REG.</description>
               <bitOffset>5</bitOffset>
               <bitWidth>1</bitWidth>
@@ -56569,49 +56553,49 @@ SHA2-512 : 0x00~0x80 \\</description>
           </fields>
         </register>
         <register>
-          <name>SPI_FMEM_PMS2_ATTR</name>
+          <name>FMEM_PMS2_ATTR</name>
           <description>SPI1 flash PMS section $n attribute register</description>
           <addressOffset>0x108</addressOffset>
           <size>0x20</size>
           <resetValue>0x0000001B</resetValue>
           <fields>
             <field>
-              <name>SPI_FMEM_PMS2_RD_ATTR</name>
+              <name>FMEM_PMS2_RD_ATTR</name>
               <description>1: SPI1 flash PMS section 2 read accessible. 0: Not allowed.</description>
               <bitOffset>0</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>SPI_FMEM_PMS2_WR_ATTR</name>
+              <name>FMEM_PMS2_WR_ATTR</name>
               <description>1: SPI1 flash PMS section 2 write accessible. 0: Not allowed.</description>
               <bitOffset>1</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>SPI_FMEM_PMS2_ECC</name>
+              <name>FMEM_PMS2_ECC</name>
               <description>SPI1 flash PMS section 2 ECC mode, 1: enable ECC mode. 0: Disable it. The flash PMS section 2 is configured by registers SPI_FMEM_PMS2_ADDR_REG and SPI_FMEM_PMS2_SIZE_REG.</description>
               <bitOffset>2</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>SPI_FMEM_PMS2_NONSECURE_RD_ATTR</name>
+              <name>FMEM_PMS2_NONSECURE_RD_ATTR</name>
               <description>1: SPI1 flash  non-secure PMS section 2 read accessible. 0: Not allowed.</description>
               <bitOffset>3</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>SPI_FMEM_PMS2_NONSECURE_WR_ATTR</name>
+              <name>FMEM_PMS2_NONSECURE_WR_ATTR</name>
               <description>1: SPI1 flash non-secure PMS section 2 write accessible. 0: Not allowed.</description>
               <bitOffset>4</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>SPI_FMEM_PMS2_NONSECURE_ECC</name>
+              <name>FMEM_PMS2_NONSECURE_ECC</name>
               <description>SPI1 flash non-secure PMS section 2 ECC mode, 1: enable ECC mode. 0: Disable it. The flash PMS section 2 is configured by registers SPI_FMEM_PMS2_ADDR_REG and SPI_FMEM_PMS2_SIZE_REG.</description>
               <bitOffset>5</bitOffset>
               <bitWidth>1</bitWidth>
@@ -56620,49 +56604,49 @@ SHA2-512 : 0x00~0x80 \\</description>
           </fields>
         </register>
         <register>
-          <name>SPI_FMEM_PMS3_ATTR</name>
+          <name>FMEM_PMS3_ATTR</name>
           <description>SPI1 flash PMS section $n attribute register</description>
           <addressOffset>0x10C</addressOffset>
           <size>0x20</size>
           <resetValue>0x0000001B</resetValue>
           <fields>
             <field>
-              <name>SPI_FMEM_PMS3_RD_ATTR</name>
+              <name>FMEM_PMS3_RD_ATTR</name>
               <description>1: SPI1 flash PMS section 3 read accessible. 0: Not allowed.</description>
               <bitOffset>0</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>SPI_FMEM_PMS3_WR_ATTR</name>
+              <name>FMEM_PMS3_WR_ATTR</name>
               <description>1: SPI1 flash PMS section 3 write accessible. 0: Not allowed.</description>
               <bitOffset>1</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>SPI_FMEM_PMS3_ECC</name>
+              <name>FMEM_PMS3_ECC</name>
               <description>SPI1 flash PMS section 3 ECC mode, 1: enable ECC mode. 0: Disable it. The flash PMS section 3 is configured by registers SPI_FMEM_PMS3_ADDR_REG and SPI_FMEM_PMS3_SIZE_REG.</description>
               <bitOffset>2</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>SPI_FMEM_PMS3_NONSECURE_RD_ATTR</name>
+              <name>FMEM_PMS3_NONSECURE_RD_ATTR</name>
               <description>1: SPI1 flash  non-secure PMS section 3 read accessible. 0: Not allowed.</description>
               <bitOffset>3</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>SPI_FMEM_PMS3_NONSECURE_WR_ATTR</name>
+              <name>FMEM_PMS3_NONSECURE_WR_ATTR</name>
               <description>1: SPI1 flash non-secure PMS section 3 write accessible. 0: Not allowed.</description>
               <bitOffset>4</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>SPI_FMEM_PMS3_NONSECURE_ECC</name>
+              <name>FMEM_PMS3_NONSECURE_ECC</name>
               <description>SPI1 flash non-secure PMS section 3 ECC mode, 1: enable ECC mode. 0: Disable it. The flash PMS section 3 is configured by registers SPI_FMEM_PMS3_ADDR_REG and SPI_FMEM_PMS3_SIZE_REG.</description>
               <bitOffset>5</bitOffset>
               <bitWidth>1</bitWidth>
@@ -56673,7 +56657,7 @@ SHA2-512 : 0x00~0x80 \\</description>
         <register>
           <dim>4</dim>
           <dimIncrement>0x4</dimIncrement>
-          <name>SPI_FMEM_PMS%s_ADDR</name>
+          <name>FMEM_PMS%s_ADDR</name>
           <description>SPI1 flash PMS section %s start address register</description>
           <addressOffset>0x110</addressOffset>
           <size>0x20</size>
@@ -56690,14 +56674,14 @@ SHA2-512 : 0x00~0x80 \\</description>
         <register>
           <dim>4</dim>
           <dimIncrement>0x4</dimIncrement>
-          <name>SPI_FMEM_PMS%s_SIZE</name>
+          <name>FMEM_PMS%s_SIZE</name>
           <description>SPI1 flash PMS section %s start address register</description>
           <addressOffset>0x120</addressOffset>
           <size>0x20</size>
           <resetValue>0x00001000</resetValue>
           <fields>
             <field>
-              <name>SPI_FMEM_PMS_SIZE</name>
+              <name>FMEM_PMS_SIZE</name>
               <description>SPI1 flash PMS section %s address region is (SPI_FMEM_PMS%s_ADDR_S, SPI_FMEM_PMS%s_ADDR_S + SPI_FMEM_PMS%s_SIZE)</description>
               <bitOffset>0</bitOffset>
               <bitWidth>17</bitWidth>
@@ -56706,49 +56690,49 @@ SHA2-512 : 0x00~0x80 \\</description>
           </fields>
         </register>
         <register>
-          <name>SPI_SMEM_PMS0_ATTR</name>
+          <name>SMEM_PMS0_ATTR</name>
           <description>SPI1 flash PMS section $n start address register</description>
           <addressOffset>0x130</addressOffset>
           <size>0x20</size>
           <resetValue>0x0000001B</resetValue>
           <fields>
             <field>
-              <name>SPI_SMEM_PMS0_RD_ATTR</name>
+              <name>SMEM_PMS0_RD_ATTR</name>
               <description>1: SPI1 external RAM PMS section 0 read accessible. 0: Not allowed.</description>
               <bitOffset>0</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>SPI_SMEM_PMS0_WR_ATTR</name>
+              <name>SMEM_PMS0_WR_ATTR</name>
               <description>1: SPI1 external RAM PMS section 0 write accessible. 0: Not allowed.</description>
               <bitOffset>1</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>SPI_SMEM_PMS0_ECC</name>
+              <name>SMEM_PMS0_ECC</name>
               <description>SPI1 external RAM PMS section 0 ECC mode, 1: enable ECC mode. 0: Disable it. The external RAM PMS section 0 is configured by registers SPI_SMEM_PMS0_ADDR_REG and SPI_SMEM_PMS0_SIZE_REG.</description>
               <bitOffset>2</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>SPI_SMEM_PMS0_NONSECURE_RD_ATTR</name>
+              <name>SMEM_PMS0_NONSECURE_RD_ATTR</name>
               <description>1: SPI1 external RAM non-secure PMS section 0 read accessible. 0: Not allowed.</description>
               <bitOffset>3</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>SPI_SMEM_PMS0_NONSECURE_WR_ATTR</name>
+              <name>SMEM_PMS0_NONSECURE_WR_ATTR</name>
               <description>1: SPI1 external RAM non-secure PMS section 0 write accessible. 0: Not allowed.</description>
               <bitOffset>4</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>SPI_SMEM_PMS0_NONSECURE_ECC</name>
+              <name>SMEM_PMS0_NONSECURE_ECC</name>
               <description>SPI1 external RAM non-secure PMS section 0 ECC mode, 1: enable ECC mode. 0: Disable it. The external RAM PMS section 0 is configured by registers SPI_SMEM_PMS0_ADDR_REG and SPI_SMEM_PMS0_SIZE_REG.</description>
               <bitOffset>5</bitOffset>
               <bitWidth>1</bitWidth>
@@ -56757,49 +56741,49 @@ SHA2-512 : 0x00~0x80 \\</description>
           </fields>
         </register>
         <register>
-          <name>SPI_SMEM_PMS1_ATTR</name>
+          <name>SMEM_PMS1_ATTR</name>
           <description>SPI1 external RAM PMS section $n attribute register</description>
           <addressOffset>0x134</addressOffset>
           <size>0x20</size>
           <resetValue>0x0000001B</resetValue>
           <fields>
             <field>
-              <name>SPI_SMEM_PMS1_RD_ATTR</name>
+              <name>SMEM_PMS1_RD_ATTR</name>
               <description>1: SPI1 external RAM PMS section 1 read accessible. 0: Not allowed.</description>
               <bitOffset>0</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>SPI_SMEM_PMS1_WR_ATTR</name>
+              <name>SMEM_PMS1_WR_ATTR</name>
               <description>1: SPI1 external RAM PMS section 1 write accessible. 0: Not allowed.</description>
               <bitOffset>1</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>SPI_SMEM_PMS1_ECC</name>
+              <name>SMEM_PMS1_ECC</name>
               <description>SPI1 external RAM PMS section 1 ECC mode, 1: enable ECC mode. 0: Disable it. The external RAM PMS section 1 is configured by registers SPI_SMEM_PMS1_ADDR_REG and SPI_SMEM_PMS1_SIZE_REG.</description>
               <bitOffset>2</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>SPI_SMEM_PMS1_NONSECURE_RD_ATTR</name>
+              <name>SMEM_PMS1_NONSECURE_RD_ATTR</name>
               <description>1: SPI1 external RAM non-secure PMS section 1 read accessible. 0: Not allowed.</description>
               <bitOffset>3</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>SPI_SMEM_PMS1_NONSECURE_WR_ATTR</name>
+              <name>SMEM_PMS1_NONSECURE_WR_ATTR</name>
               <description>1: SPI1 external RAM non-secure PMS section 1 write accessible. 0: Not allowed.</description>
               <bitOffset>4</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>SPI_SMEM_PMS1_NONSECURE_ECC</name>
+              <name>SMEM_PMS1_NONSECURE_ECC</name>
               <description>SPI1 external RAM non-secure PMS section 1 ECC mode, 1: enable ECC mode. 0: Disable it. The external RAM PMS section 1 is configured by registers SPI_SMEM_PMS1_ADDR_REG and SPI_SMEM_PMS1_SIZE_REG.</description>
               <bitOffset>5</bitOffset>
               <bitWidth>1</bitWidth>
@@ -56808,49 +56792,49 @@ SHA2-512 : 0x00~0x80 \\</description>
           </fields>
         </register>
         <register>
-          <name>SPI_SMEM_PMS2_ATTR</name>
+          <name>SMEM_PMS2_ATTR</name>
           <description>SPI1 external RAM PMS section $n attribute register</description>
           <addressOffset>0x138</addressOffset>
           <size>0x20</size>
           <resetValue>0x0000001B</resetValue>
           <fields>
             <field>
-              <name>SPI_SMEM_PMS2_RD_ATTR</name>
+              <name>SMEM_PMS2_RD_ATTR</name>
               <description>1: SPI1 external RAM PMS section 2 read accessible. 0: Not allowed.</description>
               <bitOffset>0</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>SPI_SMEM_PMS2_WR_ATTR</name>
+              <name>SMEM_PMS2_WR_ATTR</name>
               <description>1: SPI1 external RAM PMS section 2 write accessible. 0: Not allowed.</description>
               <bitOffset>1</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>SPI_SMEM_PMS2_ECC</name>
+              <name>SMEM_PMS2_ECC</name>
               <description>SPI1 external RAM PMS section 2 ECC mode, 1: enable ECC mode. 0: Disable it. The external RAM PMS section 2 is configured by registers SPI_SMEM_PMS2_ADDR_REG and SPI_SMEM_PMS2_SIZE_REG.</description>
               <bitOffset>2</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>SPI_SMEM_PMS2_NONSECURE_RD_ATTR</name>
+              <name>SMEM_PMS2_NONSECURE_RD_ATTR</name>
               <description>1: SPI1 external RAM non-secure PMS section 2 read accessible. 0: Not allowed.</description>
               <bitOffset>3</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>SPI_SMEM_PMS2_NONSECURE_WR_ATTR</name>
+              <name>SMEM_PMS2_NONSECURE_WR_ATTR</name>
               <description>1: SPI1 external RAM non-secure PMS section 2 write accessible. 0: Not allowed.</description>
               <bitOffset>4</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>SPI_SMEM_PMS2_NONSECURE_ECC</name>
+              <name>SMEM_PMS2_NONSECURE_ECC</name>
               <description>SPI1 external RAM non-secure PMS section 2 ECC mode, 1: enable ECC mode. 0: Disable it. The external RAM PMS section 2 is configured by registers SPI_SMEM_PMS2_ADDR_REG and SPI_SMEM_PMS2_SIZE_REG.</description>
               <bitOffset>5</bitOffset>
               <bitWidth>1</bitWidth>
@@ -56859,49 +56843,49 @@ SHA2-512 : 0x00~0x80 \\</description>
           </fields>
         </register>
         <register>
-          <name>SPI_SMEM_PMS3_ATTR</name>
+          <name>SMEM_PMS3_ATTR</name>
           <description>SPI1 external RAM PMS section $n attribute register</description>
           <addressOffset>0x13C</addressOffset>
           <size>0x20</size>
           <resetValue>0x0000001B</resetValue>
           <fields>
             <field>
-              <name>SPI_SMEM_PMS3_RD_ATTR</name>
+              <name>SMEM_PMS3_RD_ATTR</name>
               <description>1: SPI1 external RAM PMS section 3 read accessible. 0: Not allowed.</description>
               <bitOffset>0</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>SPI_SMEM_PMS3_WR_ATTR</name>
+              <name>SMEM_PMS3_WR_ATTR</name>
               <description>1: SPI1 external RAM PMS section 3 write accessible. 0: Not allowed.</description>
               <bitOffset>1</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>SPI_SMEM_PMS3_ECC</name>
+              <name>SMEM_PMS3_ECC</name>
               <description>SPI1 external RAM PMS section 3 ECC mode, 1: enable ECC mode. 0: Disable it. The external RAM PMS section 3 is configured by registers SPI_SMEM_PMS3_ADDR_REG and SPI_SMEM_PMS3_SIZE_REG.</description>
               <bitOffset>2</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>SPI_SMEM_PMS3_NONSECURE_RD_ATTR</name>
+              <name>SMEM_PMS3_NONSECURE_RD_ATTR</name>
               <description>1: SPI1 external RAM non-secure PMS section 3 read accessible. 0: Not allowed.</description>
               <bitOffset>3</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>SPI_SMEM_PMS3_NONSECURE_WR_ATTR</name>
+              <name>SMEM_PMS3_NONSECURE_WR_ATTR</name>
               <description>1: SPI1 external RAM non-secure PMS section 3 write accessible. 0: Not allowed.</description>
               <bitOffset>4</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>SPI_SMEM_PMS3_NONSECURE_ECC</name>
+              <name>SMEM_PMS3_NONSECURE_ECC</name>
               <description>SPI1 external RAM non-secure PMS section 3 ECC mode, 1: enable ECC mode. 0: Disable it. The external RAM PMS section 3 is configured by registers SPI_SMEM_PMS3_ADDR_REG and SPI_SMEM_PMS3_SIZE_REG.</description>
               <bitOffset>5</bitOffset>
               <bitWidth>1</bitWidth>
@@ -56912,7 +56896,7 @@ SHA2-512 : 0x00~0x80 \\</description>
         <register>
           <dim>4</dim>
           <dimIncrement>0x4</dimIncrement>
-          <name>SPI_SMEM_PMS%s_ADDR</name>
+          <name>SMEM_PMS%s_ADDR</name>
           <description>SPI1 external RAM PMS section %s start address register</description>
           <addressOffset>0x140</addressOffset>
           <size>0x20</size>
@@ -56929,14 +56913,14 @@ SHA2-512 : 0x00~0x80 \\</description>
         <register>
           <dim>4</dim>
           <dimIncrement>0x4</dimIncrement>
-          <name>SPI_SMEM_PMS%s_SIZE</name>
+          <name>SMEM_PMS%s_SIZE</name>
           <description>SPI1 external RAM PMS section %s start address register</description>
           <addressOffset>0x150</addressOffset>
           <size>0x20</size>
           <resetValue>0x00001000</resetValue>
           <fields>
             <field>
-              <name>SPI_SMEM_PMS_SIZE</name>
+              <name>SMEM_PMS_SIZE</name>
               <description>SPI1 external RAM PMS section %s address region is (SPI_SMEM_PMS%s_ADDR_S, SPI_SMEM_PMS%s_ADDR_S + SPI_SMEM_PMS%s_SIZE)</description>
               <bitOffset>0</bitOffset>
               <bitWidth>17</bitWidth>
@@ -57017,28 +57001,28 @@ SHA2-512 : 0x00~0x80 \\</description>
               <access>read-only</access>
             </field>
             <field>
-              <name>SPI_FMEM_ECC_ERR_INT_NUM</name>
+              <name>FMEM_ECC_ERR_INT_NUM</name>
               <description>Set the error times of MSPI ECC read to generate MSPI SPI_MEM_ECC_ERR_INT interrupt.</description>
               <bitOffset>11</bitOffset>
               <bitWidth>6</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>SPI_FMEM_ECC_ERR_INT_EN</name>
+              <name>FMEM_ECC_ERR_INT_EN</name>
               <description>Set this bit to calculate the error times of MSPI ECC read when accesses to flash.</description>
               <bitOffset>17</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>SPI_FMEM_PAGE_SIZE</name>
+              <name>FMEM_PAGE_SIZE</name>
               <description>Set the page size of the flash accessed by MSPI. 0: 256 bytes. 1: 512 bytes. 2: 1024 bytes. 3: 2048 bytes.</description>
               <bitOffset>18</bitOffset>
               <bitWidth>2</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>SPI_FMEM_ECC_ADDR_EN</name>
+              <name>FMEM_ECC_ADDR_EN</name>
               <description>Set this bit to enable MSPI ECC address conversion, no matter MSPI accesses to the ECC region or non-ECC region of flash. If there is no ECC region in flash, this bit should be 0. Otherwise, this bit should be 1.</description>
               <bitOffset>21</bitOffset>
               <bitWidth>1</bitWidth>
@@ -57098,28 +57082,28 @@ SHA2-512 : 0x00~0x80 \\</description>
           </fields>
         </register>
         <register>
-          <name>SPI_SMEM_ECC_CTRL</name>
+          <name>SMEM_ECC_CTRL</name>
           <description>MSPI ECC control register</description>
           <addressOffset>0x174</addressOffset>
           <size>0x20</size>
           <resetValue>0x00080000</resetValue>
           <fields>
             <field>
-              <name>SPI_SMEM_ECC_ERR_INT_EN</name>
+              <name>SMEM_ECC_ERR_INT_EN</name>
               <description>Set this bit to calculate the error times of MSPI ECC read when accesses to external RAM.</description>
               <bitOffset>17</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>SPI_SMEM_PAGE_SIZE</name>
+              <name>SMEM_PAGE_SIZE</name>
               <description>Set the page size of the external RAM accessed by MSPI. 0: 256 bytes. 1: 512 bytes. 2: 1024 bytes. 3: 2048 bytes.</description>
               <bitOffset>18</bitOffset>
               <bitWidth>2</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>SPI_SMEM_ECC_ADDR_EN</name>
+              <name>SMEM_ECC_ADDR_EN</name>
               <description>Set this bit to enable MSPI ECC address conversion, no matter MSPI accesses to the ECC region or non-ECC region of external RAM. If there is no ECC region in external RAM, this bit should be 0. Otherwise, this bit should be 1.</description>
               <bitOffset>20</bitOffset>
               <bitWidth>1</bitWidth>
@@ -57128,7 +57112,7 @@ SHA2-512 : 0x00~0x80 \\</description>
           </fields>
         </register>
         <register>
-          <name>SPI_SMEM_AXI_ADDR_CTRL</name>
+          <name>SMEM_AXI_ADDR_CTRL</name>
           <description>SPI0 AXI address control register</description>
           <addressOffset>0x178</addressOffset>
           <size>0x20</size>
@@ -57142,35 +57126,35 @@ SHA2-512 : 0x00~0x80 \\</description>
               <access>read-only</access>
             </field>
             <field>
-              <name>SPI_RDATA_AFIFO_REMPTY</name>
+              <name>RDATA_AFIFO_REMPTY</name>
               <description>1: RDATA_AFIFO is empty. 0: At least one AXI read transfer is pending.</description>
               <bitOffset>27</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-only</access>
             </field>
             <field>
-              <name>SPI_RADDR_AFIFO_REMPTY</name>
+              <name>RADDR_AFIFO_REMPTY</name>
               <description>1: AXI_RADDR_CTL_AFIFO is empty. 0: At least one AXI read transfer is pending.</description>
               <bitOffset>28</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-only</access>
             </field>
             <field>
-              <name>SPI_WDATA_AFIFO_REMPTY</name>
+              <name>WDATA_AFIFO_REMPTY</name>
               <description>1: WDATA_AFIFO is empty. 0: At least one AXI write transfer is pending.</description>
               <bitOffset>29</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-only</access>
             </field>
             <field>
-              <name>SPI_WBLEN_AFIFO_REMPTY</name>
+              <name>WBLEN_AFIFO_REMPTY</name>
               <description>1: WBLEN_AFIFO is empty. 0: At least one AXI write transfer is pending.</description>
               <bitOffset>30</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-only</access>
             </field>
             <field>
-              <name>SPI_ALL_AXI_TRANS_AFIFO_EMPTY</name>
+              <name>ALL_AXI_TRANS_AFIFO_EMPTY</name>
               <description>This bit is set when WADDR_AFIFO, WBLEN_AFIFO, WDATA_AFIFO, AXI_RADDR_CTL_AFIFO and RDATA_AFIFO are empty and spi0_mst_st is IDLE.</description>
               <bitOffset>31</bitOffset>
               <bitWidth>1</bitWidth>
@@ -57528,63 +57512,63 @@ SHA2-512 : 0x00~0x80 \\</description>
           </fields>
         </register>
         <register>
-          <name>SPI_SMEM_TIMING_CALI</name>
+          <name>SMEM_TIMING_CALI</name>
           <description>MSPI external RAM timing calibration register</description>
           <addressOffset>0x190</addressOffset>
           <size>0x20</size>
           <resetValue>0x00002A81</resetValue>
           <fields>
             <field>
-              <name>SPI_SMEM_TIMING_CLK_ENA</name>
+              <name>SMEM_TIMING_CLK_ENA</name>
               <description>For sram, the bit is used to enable timing adjust clock for all reading operations.</description>
               <bitOffset>0</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>SPI_SMEM_TIMING_CALI</name>
+              <name>SMEM_TIMING_CALI</name>
               <description>For sram, the bit is used to enable timing auto-calibration for all reading operations.</description>
               <bitOffset>1</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>SPI_SMEM_EXTRA_DUMMY_CYCLELEN</name>
+              <name>SMEM_EXTRA_DUMMY_CYCLELEN</name>
               <description>For sram, add extra dummy spi clock cycle length for spi clock calibration.</description>
               <bitOffset>2</bitOffset>
               <bitWidth>3</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>SPI_SMEM_DLL_TIMING_CALI</name>
+              <name>SMEM_DLL_TIMING_CALI</name>
               <description>Set this bit to enable DLL for timing calibration in DDR mode when accessed to EXT_RAM.</description>
               <bitOffset>5</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>SPI_SMEM_DQS0_270_SEL</name>
+              <name>SMEM_DQS0_270_SEL</name>
               <description>Set these bits to delay dqs signal &amp; invert delayed signal for DLL timing adjust. 2'd0: 0.5ns, 2'd1: 1.0ns, 2'd2: 1.5ns 2'd3: 2.0ns.</description>
               <bitOffset>7</bitOffset>
               <bitWidth>2</bitWidth>
               <access>read-only</access>
             </field>
             <field>
-              <name>SPI_SMEM_DQS0_90_SEL</name>
+              <name>SMEM_DQS0_90_SEL</name>
               <description>Set these bits to delay dqs signal for DLL timing adjust. 2'd0: 0.5ns, 2'd1: 1.0ns, 2'd2: 1.5ns 2'd3: 2.0ns.</description>
               <bitOffset>9</bitOffset>
               <bitWidth>2</bitWidth>
               <access>read-only</access>
             </field>
             <field>
-              <name>SPI_SMEM_DQS1_270_SEL</name>
+              <name>SMEM_DQS1_270_SEL</name>
               <description>Set these bits to delay dqs signal &amp; invert delayed signal for DLL timing adjust. 2'd0: 0.5ns, 2'd1: 1.0ns, 2'd2: 1.5ns 2'd3: 2.0ns.</description>
               <bitOffset>11</bitOffset>
               <bitWidth>2</bitWidth>
               <access>read-only</access>
             </field>
             <field>
-              <name>SPI_SMEM_DQS1_90_SEL</name>
+              <name>SMEM_DQS1_90_SEL</name>
               <description>Set these bits to delay dqs signal for DLL timing adjust. 2'd0: 0.5ns, 2'd1: 1.0ns, 2'd2: 1.5ns 2'd3: 2.0ns.</description>
               <bitOffset>13</bitOffset>
               <bitWidth>2</bitWidth>
@@ -57593,69 +57577,69 @@ SHA2-512 : 0x00~0x80 \\</description>
           </fields>
         </register>
         <register>
-          <name>SPI_SMEM_DIN_MODE</name>
+          <name>SMEM_DIN_MODE</name>
           <description>MSPI external RAM input timing delay mode control register</description>
           <addressOffset>0x194</addressOffset>
           <size>0x20</size>
           <fields>
             <field>
-              <name>SPI_SMEM_DIN0_MODE</name>
+              <name>SMEM_DIN0_MODE</name>
               <description>the input signals are delayed by system clock cycles, 0: input without delayed, 1: input with the posedge of clk_apb,2 input with the negedge of clk_apb,  3: input with the posedge of clk_160, 4 input with the negedge of clk_160, 5: input with the spi_clk high edge,  6: input with the spi_clk low edge</description>
               <bitOffset>0</bitOffset>
               <bitWidth>3</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>SPI_SMEM_DIN1_MODE</name>
+              <name>SMEM_DIN1_MODE</name>
               <description>the input signals are delayed by system clock cycles, 0: input without delayed, 1: input with the posedge of clk_apb,2 input with the negedge of clk_apb,  3: input with the posedge of clk_160, 4 input with the negedge of clk_160, 5: input with the spi_clk high edge,  6: input with the spi_clk low edge</description>
               <bitOffset>3</bitOffset>
               <bitWidth>3</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>SPI_SMEM_DIN2_MODE</name>
+              <name>SMEM_DIN2_MODE</name>
               <description>the input signals are delayed by system clock cycles, 0: input without delayed, 1: input with the posedge of clk_apb,2 input with the negedge of clk_apb,  3: input with the posedge of clk_160, 4 input with the negedge of clk_160, 5: input with the spi_clk high edge,  6: input with the spi_clk low edge</description>
               <bitOffset>6</bitOffset>
               <bitWidth>3</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>SPI_SMEM_DIN3_MODE</name>
+              <name>SMEM_DIN3_MODE</name>
               <description>the input signals are delayed by system clock cycles, 0: input without delayed, 1: input with the posedge of clk_apb,2 input with the negedge of clk_apb,  3: input with the posedge of clk_160, 4 input with the negedge of clk_160, 5: input with the spi_clk high edge,  6: input with the spi_clk low edge</description>
               <bitOffset>9</bitOffset>
               <bitWidth>3</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>SPI_SMEM_DIN4_MODE</name>
+              <name>SMEM_DIN4_MODE</name>
               <description>the input signals are delayed by system clock cycles, 0: input without delayed, 1: input with the posedge of clk_apb,2 input with the negedge of clk_apb,  3: input with the posedge of clk_160, 4 input with the negedge of clk_160, 5: input with the spi_clk high edge,  6: input with the spi_clk low edge</description>
               <bitOffset>12</bitOffset>
               <bitWidth>3</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>SPI_SMEM_DIN5_MODE</name>
+              <name>SMEM_DIN5_MODE</name>
               <description>the input signals are delayed by system clock cycles, 0: input without delayed, 1: input with the posedge of clk_apb,2 input with the negedge of clk_apb,  3: input with the posedge of clk_160, 4 input with the negedge of clk_160, 5: input with the spi_clk high edge,  6: input with the spi_clk low edge</description>
               <bitOffset>15</bitOffset>
               <bitWidth>3</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>SPI_SMEM_DIN6_MODE</name>
+              <name>SMEM_DIN6_MODE</name>
               <description>the input signals are delayed by system clock cycles, 0: input without delayed, 1: input with the posedge of clk_apb,2 input with the negedge of clk_apb,  3: input with the posedge of clk_160, 4 input with the negedge of clk_160, 5: input with the spi_clk high edge,  6: input with the spi_clk low edge</description>
               <bitOffset>18</bitOffset>
               <bitWidth>3</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>SPI_SMEM_DIN7_MODE</name>
+              <name>SMEM_DIN7_MODE</name>
               <description>the input signals are delayed by system clock cycles, 0: input without delayed, 1: input with the posedge of clk_apb,2 input with the negedge of clk_apb,  3: input with the posedge of clk_160, 4 input with the negedge of clk_160, 5: input with the spi_clk high edge,  6: input with the spi_clk low edge</description>
               <bitOffset>21</bitOffset>
               <bitWidth>3</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>SPI_SMEM_DINS_MODE</name>
+              <name>SMEM_DINS_MODE</name>
               <description>the input signals are delayed by system clock cycles, 0: input without delayed, 1: input with the posedge of clk_apb,2 input with the negedge of clk_apb,  3: input with the posedge of clk_160, 4 input with the negedge of clk_160, 5: input with the spi_clk high edge,  6: input with the spi_clk low edge</description>
               <bitOffset>24</bitOffset>
               <bitWidth>3</bitWidth>
@@ -57664,69 +57648,69 @@ SHA2-512 : 0x00~0x80 \\</description>
           </fields>
         </register>
         <register>
-          <name>SPI_SMEM_DIN_NUM</name>
+          <name>SMEM_DIN_NUM</name>
           <description>MSPI external RAM input timing delay number control register</description>
           <addressOffset>0x198</addressOffset>
           <size>0x20</size>
           <fields>
             <field>
-              <name>SPI_SMEM_DIN0_NUM</name>
+              <name>SMEM_DIN0_NUM</name>
               <description>the input signals are delayed by system clock cycles, 0: delayed by 1 cycle, 1: delayed by 2 cycles,...</description>
               <bitOffset>0</bitOffset>
               <bitWidth>2</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>SPI_SMEM_DIN1_NUM</name>
+              <name>SMEM_DIN1_NUM</name>
               <description>the input signals are delayed by system clock cycles, 0: delayed by 1 cycle, 1: delayed by 2 cycles,...</description>
               <bitOffset>2</bitOffset>
               <bitWidth>2</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>SPI_SMEM_DIN2_NUM</name>
+              <name>SMEM_DIN2_NUM</name>
               <description>the input signals are delayed by system clock cycles, 0: delayed by 1 cycle, 1: delayed by 2 cycles,...</description>
               <bitOffset>4</bitOffset>
               <bitWidth>2</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>SPI_SMEM_DIN3_NUM</name>
+              <name>SMEM_DIN3_NUM</name>
               <description>the input signals are delayed by system clock cycles, 0: delayed by 1 cycle, 1: delayed by 2 cycles,...</description>
               <bitOffset>6</bitOffset>
               <bitWidth>2</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>SPI_SMEM_DIN4_NUM</name>
+              <name>SMEM_DIN4_NUM</name>
               <description>the input signals are delayed by system clock cycles, 0: delayed by 1 cycle, 1: delayed by 2 cycles,...</description>
               <bitOffset>8</bitOffset>
               <bitWidth>2</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>SPI_SMEM_DIN5_NUM</name>
+              <name>SMEM_DIN5_NUM</name>
               <description>the input signals are delayed by system clock cycles, 0: delayed by 1 cycle, 1: delayed by 2 cycles,...</description>
               <bitOffset>10</bitOffset>
               <bitWidth>2</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>SPI_SMEM_DIN6_NUM</name>
+              <name>SMEM_DIN6_NUM</name>
               <description>the input signals are delayed by system clock cycles, 0: delayed by 1 cycle, 1: delayed by 2 cycles,...</description>
               <bitOffset>12</bitOffset>
               <bitWidth>2</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>SPI_SMEM_DIN7_NUM</name>
+              <name>SMEM_DIN7_NUM</name>
               <description>the input signals are delayed by system clock cycles, 0: delayed by 1 cycle, 1: delayed by 2 cycles,...</description>
               <bitOffset>14</bitOffset>
               <bitWidth>2</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>SPI_SMEM_DINS_NUM</name>
+              <name>SMEM_DINS_NUM</name>
               <description>the input signals are delayed by system clock cycles, 0: delayed by 1 cycle, 1: delayed by 2 cycles,...</description>
               <bitOffset>16</bitOffset>
               <bitWidth>2</bitWidth>
@@ -57735,69 +57719,69 @@ SHA2-512 : 0x00~0x80 \\</description>
           </fields>
         </register>
         <register>
-          <name>SPI_SMEM_DOUT_MODE</name>
+          <name>SMEM_DOUT_MODE</name>
           <description>MSPI external RAM output timing adjustment control register</description>
           <addressOffset>0x19C</addressOffset>
           <size>0x20</size>
           <fields>
             <field>
-              <name>SPI_SMEM_DOUT0_MODE</name>
+              <name>SMEM_DOUT0_MODE</name>
               <description>the output signals are delayed by system clock cycles, 0: output without delayed, 1: output with the posedge of clk_apb,2 output with the negedge of clk_apb, 3: output with the posedge of clk_160,4 output with the negedge of clk_160,5: output with the spi_clk high edge ,6: output with the spi_clk low edge</description>
               <bitOffset>0</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>SPI_SMEM_DOUT1_MODE</name>
+              <name>SMEM_DOUT1_MODE</name>
               <description>the output signals are delayed by system clock cycles, 0: output without delayed, 1: output with the posedge of clk_apb,2 output with the negedge of clk_apb, 3: output with the posedge of clk_160,4 output with the negedge of clk_160,5: output with the spi_clk high edge ,6: output with the spi_clk low edge</description>
               <bitOffset>1</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>SPI_SMEM_DOUT2_MODE</name>
+              <name>SMEM_DOUT2_MODE</name>
               <description>the output signals are delayed by system clock cycles, 0: output without delayed, 1: output with the posedge of clk_apb,2 output with the negedge of clk_apb, 3: output with the posedge of clk_160,4 output with the negedge of clk_160,5: output with the spi_clk high edge ,6: output with the spi_clk low edge</description>
               <bitOffset>2</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>SPI_SMEM_DOUT3_MODE</name>
+              <name>SMEM_DOUT3_MODE</name>
               <description>the output signals are delayed by system clock cycles, 0: output without delayed, 1: output with the posedge of clk_apb,2 output with the negedge of clk_apb, 3: output with the posedge of clk_160,4 output with the negedge of clk_160,5: output with the spi_clk high edge ,6: output with the spi_clk low edge</description>
               <bitOffset>3</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>SPI_SMEM_DOUT4_MODE</name>
+              <name>SMEM_DOUT4_MODE</name>
               <description>the output signals are delayed by system clock cycles, 0: output without delayed, 1: output with the posedge of clk_apb,2 output with the negedge of clk_apb, 3: output with the posedge of clk_160,4 output with the negedge of clk_160,5: output with the spi_clk high edge ,6: output with the spi_clk low edge</description>
               <bitOffset>4</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>SPI_SMEM_DOUT5_MODE</name>
+              <name>SMEM_DOUT5_MODE</name>
               <description>the output signals are delayed by system clock cycles, 0: output without delayed, 1: output with the posedge of clk_apb,2 output with the negedge of clk_apb, 3: output with the posedge of clk_160,4 output with the negedge of clk_160,5: output with the spi_clk high edge ,6: output with the spi_clk low edge</description>
               <bitOffset>5</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>SPI_SMEM_DOUT6_MODE</name>
+              <name>SMEM_DOUT6_MODE</name>
               <description>the output signals are delayed by system clock cycles, 0: output without delayed, 1: output with the posedge of clk_apb,2 output with the negedge of clk_apb, 3: output with the posedge of clk_160,4 output with the negedge of clk_160,5: output with the spi_clk high edge ,6: output with the spi_clk low edge</description>
               <bitOffset>6</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>SPI_SMEM_DOUT7_MODE</name>
+              <name>SMEM_DOUT7_MODE</name>
               <description>the output signals are delayed by system clock cycles, 0: output without delayed, 1: output with the posedge of clk_apb,2 output with the negedge of clk_apb, 3: output with the posedge of clk_160,4 output with the negedge of clk_160,5: output with the spi_clk high edge ,6: output with the spi_clk low edge</description>
               <bitOffset>7</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>SPI_SMEM_DOUTS_MODE</name>
+              <name>SMEM_DOUTS_MODE</name>
               <description>the output signals are delayed by system clock cycles, 0: output without delayed, 1: output with the posedge of clk_apb,2 output with the negedge of clk_apb, 3: output with the posedge of clk_160,4 output with the negedge of clk_160,5: output with the spi_clk high edge ,6: output with the spi_clk low edge</description>
               <bitOffset>8</bitOffset>
               <bitWidth>1</bitWidth>
@@ -57806,70 +57790,70 @@ SHA2-512 : 0x00~0x80 \\</description>
           </fields>
         </register>
         <register>
-          <name>SPI_SMEM_AC</name>
+          <name>SMEM_AC</name>
           <description>MSPI external RAM ECC and SPI CS timing control register</description>
           <addressOffset>0x1A0</addressOffset>
           <size>0x20</size>
           <resetValue>0x0000B084</resetValue>
           <fields>
             <field>
-              <name>SPI_SMEM_CS_SETUP</name>
+              <name>SMEM_CS_SETUP</name>
               <description>For SPI0 and SPI1, spi cs is enable when spi is in prepare phase. 1: enable 0: disable.</description>
               <bitOffset>0</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>SPI_SMEM_CS_HOLD</name>
+              <name>SMEM_CS_HOLD</name>
               <description>For SPI0 and SPI1, spi cs keep low when spi is in done phase. 1: enable 0: disable.</description>
               <bitOffset>1</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>SPI_SMEM_CS_SETUP_TIME</name>
+              <name>SMEM_CS_SETUP_TIME</name>
               <description>For spi0, (cycles-1) of prepare phase by spi clock this bits are combined with spi_mem_cs_setup bit.</description>
               <bitOffset>2</bitOffset>
               <bitWidth>5</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>SPI_SMEM_CS_HOLD_TIME</name>
+              <name>SMEM_CS_HOLD_TIME</name>
               <description>For SPI0 and SPI1, spi cs signal is delayed to inactive by spi clock this bits are combined with spi_mem_cs_hold bit.</description>
               <bitOffset>7</bitOffset>
               <bitWidth>5</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>SPI_SMEM_ECC_CS_HOLD_TIME</name>
+              <name>SMEM_ECC_CS_HOLD_TIME</name>
               <description>SPI_SMEM_CS_HOLD_TIME + SPI_SMEM_ECC_CS_HOLD_TIME is the SPI0 and SPI1 CS hold cycles in ECC mode when accessed external RAM.</description>
               <bitOffset>12</bitOffset>
               <bitWidth>3</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>SPI_SMEM_ECC_SKIP_PAGE_CORNER</name>
+              <name>SMEM_ECC_SKIP_PAGE_CORNER</name>
               <description>1: SPI0 skips page corner when accesses external RAM. 0: Not skip page corner when accesses external RAM.</description>
               <bitOffset>15</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>SPI_SMEM_ECC_16TO18_BYTE_EN</name>
+              <name>SMEM_ECC_16TO18_BYTE_EN</name>
               <description>Set this bit to enable SPI0 and SPI1 ECC 16 bytes data with 2 ECC bytes mode when accesses external RAM.</description>
               <bitOffset>16</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>SPI_SMEM_CS_HOLD_DELAY</name>
+              <name>SMEM_CS_HOLD_DELAY</name>
               <description>These bits are used to set the minimum CS high time tSHSL between SPI burst transfer when accesses to external RAM. tSHSL is (SPI_SMEM_CS_HOLD_DELAY[5:0] + 1) MSPI core clock cycles.</description>
               <bitOffset>25</bitOffset>
               <bitWidth>6</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>SPI_SMEM_SPLIT_TRANS_EN</name>
+              <name>SMEM_SPLIT_TRANS_EN</name>
               <description>Set this bit to enable SPI0 split one AXI accesses EXT_RAM transfer into two SPI transfers when one transfer will cross flash/EXT_RAM page corner, valid no matter whether there is an ECC region or not.</description>
               <bitOffset>31</bitOffset>
               <bitWidth>1</bitWidth>
@@ -57878,69 +57862,69 @@ SHA2-512 : 0x00~0x80 \\</description>
           </fields>
         </register>
         <register>
-          <name>SPI_SMEM_DIN_HEX_MODE</name>
+          <name>SMEM_DIN_HEX_MODE</name>
           <description>MSPI 16x external RAM input timing delay mode control register</description>
           <addressOffset>0x1A4</addressOffset>
           <size>0x20</size>
           <fields>
             <field>
-              <name>SPI_SMEM_DIN08_MODE</name>
+              <name>SMEM_DIN08_MODE</name>
               <description>the input signals are delayed by system clock cycles, 0: input without delayed, 1: input with the posedge of clk_apb,2 input with the negedge of clk_apb,  3: input with the posedge of clk_160, 4 input with the negedge of clk_160, 5: input with the spi_clk high edge,  6: input with the spi_clk low edge</description>
               <bitOffset>0</bitOffset>
               <bitWidth>3</bitWidth>
               <access>read-only</access>
             </field>
             <field>
-              <name>SPI_SMEM_DIN09_MODE</name>
+              <name>SMEM_DIN09_MODE</name>
               <description>the input signals are delayed by system clock cycles, 0: input without delayed, 1: input with the posedge of clk_apb,2 input with the negedge of clk_apb,  3: input with the posedge of clk_160, 4 input with the negedge of clk_160, 5: input with the spi_clk high edge,  6: input with the spi_clk low edge</description>
               <bitOffset>3</bitOffset>
               <bitWidth>3</bitWidth>
               <access>read-only</access>
             </field>
             <field>
-              <name>SPI_SMEM_DIN10_MODE</name>
+              <name>SMEM_DIN10_MODE</name>
               <description>the input signals are delayed by system clock cycles, 0: input without delayed, 1: input with the posedge of clk_apb,2 input with the negedge of clk_apb,  3: input with the posedge of clk_160, 4 input with the negedge of clk_160, 5: input with the spi_clk high edge,  6: input with the spi_clk low edge</description>
               <bitOffset>6</bitOffset>
               <bitWidth>3</bitWidth>
               <access>read-only</access>
             </field>
             <field>
-              <name>SPI_SMEM_DIN11_MODE</name>
+              <name>SMEM_DIN11_MODE</name>
               <description>the input signals are delayed by system clock cycles, 0: input without delayed, 1: input with the posedge of clk_apb,2 input with the negedge of clk_apb,  3: input with the posedge of clk_160, 4 input with the negedge of clk_160, 5: input with the spi_clk high edge,  6: input with the spi_clk low edge</description>
               <bitOffset>9</bitOffset>
               <bitWidth>3</bitWidth>
               <access>read-only</access>
             </field>
             <field>
-              <name>SPI_SMEM_DIN12_MODE</name>
+              <name>SMEM_DIN12_MODE</name>
               <description>the input signals are delayed by system clock cycles, 0: input without delayed, 1: input with the posedge of clk_apb,2 input with the negedge of clk_apb,  3: input with the posedge of clk_160, 4 input with the negedge of clk_160, 5: input with the spi_clk high edge,  6: input with the spi_clk low edge</description>
               <bitOffset>12</bitOffset>
               <bitWidth>3</bitWidth>
               <access>read-only</access>
             </field>
             <field>
-              <name>SPI_SMEM_DIN13_MODE</name>
+              <name>SMEM_DIN13_MODE</name>
               <description>the input signals are delayed by system clock cycles, 0: input without delayed, 1: input with the posedge of clk_apb,2 input with the negedge of clk_apb,  3: input with the posedge of clk_160, 4 input with the negedge of clk_160, 5: input with the spi_clk high edge,  6: input with the spi_clk low edge</description>
               <bitOffset>15</bitOffset>
               <bitWidth>3</bitWidth>
               <access>read-only</access>
             </field>
             <field>
-              <name>SPI_SMEM_DIN14_MODE</name>
+              <name>SMEM_DIN14_MODE</name>
               <description>the input signals are delayed by system clock cycles, 0: input without delayed, 1: input with the posedge of clk_apb,2 input with the negedge of clk_apb,  3: input with the posedge of clk_160, 4 input with the negedge of clk_160, 5: input with the spi_clk high edge,  6: input with the spi_clk low edge</description>
               <bitOffset>18</bitOffset>
               <bitWidth>3</bitWidth>
               <access>read-only</access>
             </field>
             <field>
-              <name>SPI_SMEM_DIN15_MODE</name>
+              <name>SMEM_DIN15_MODE</name>
               <description>the input signals are delayed by system clock cycles, 0: input without delayed, 1: input with the posedge of clk_apb,2 input with the negedge of clk_apb,  3: input with the posedge of clk_160, 4 input with the negedge of clk_160, 5: input with the spi_clk high edge,  6: input with the spi_clk low edge</description>
               <bitOffset>21</bitOffset>
               <bitWidth>3</bitWidth>
               <access>read-only</access>
             </field>
             <field>
-              <name>SPI_SMEM_DINS_HEX_MODE</name>
+              <name>SMEM_DINS_HEX_MODE</name>
               <description>the input signals are delayed by system clock cycles, 0: input without delayed, 1: input with the posedge of clk_apb,2 input with the negedge of clk_apb,  3: input with the posedge of clk_160, 4 input with the negedge of clk_160, 5: input with the spi_clk high edge,  6: input with the spi_clk low edge</description>
               <bitOffset>24</bitOffset>
               <bitWidth>3</bitWidth>
@@ -57949,69 +57933,69 @@ SHA2-512 : 0x00~0x80 \\</description>
           </fields>
         </register>
         <register>
-          <name>SPI_SMEM_DIN_HEX_NUM</name>
+          <name>SMEM_DIN_HEX_NUM</name>
           <description>MSPI 16x external RAM input timing delay number control register</description>
           <addressOffset>0x1A8</addressOffset>
           <size>0x20</size>
           <fields>
             <field>
-              <name>SPI_SMEM_DIN08_NUM</name>
+              <name>SMEM_DIN08_NUM</name>
               <description>the input signals are delayed by system clock cycles, 0: delayed by 1 cycle, 1: delayed by 2 cycles,...</description>
               <bitOffset>0</bitOffset>
               <bitWidth>2</bitWidth>
               <access>read-only</access>
             </field>
             <field>
-              <name>SPI_SMEM_DIN09_NUM</name>
+              <name>SMEM_DIN09_NUM</name>
               <description>the input signals are delayed by system clock cycles, 0: delayed by 1 cycle, 1: delayed by 2 cycles,...</description>
               <bitOffset>2</bitOffset>
               <bitWidth>2</bitWidth>
               <access>read-only</access>
             </field>
             <field>
-              <name>SPI_SMEM_DIN10_NUM</name>
+              <name>SMEM_DIN10_NUM</name>
               <description>the input signals are delayed by system clock cycles, 0: delayed by 1 cycle, 1: delayed by 2 cycles,...</description>
               <bitOffset>4</bitOffset>
               <bitWidth>2</bitWidth>
               <access>read-only</access>
             </field>
             <field>
-              <name>SPI_SMEM_DIN11_NUM</name>
+              <name>SMEM_DIN11_NUM</name>
               <description>the input signals are delayed by system clock cycles, 0: delayed by 1 cycle, 1: delayed by 2 cycles,...</description>
               <bitOffset>6</bitOffset>
               <bitWidth>2</bitWidth>
               <access>read-only</access>
             </field>
             <field>
-              <name>SPI_SMEM_DIN12_NUM</name>
+              <name>SMEM_DIN12_NUM</name>
               <description>the input signals are delayed by system clock cycles, 0: delayed by 1 cycle, 1: delayed by 2 cycles,...</description>
               <bitOffset>8</bitOffset>
               <bitWidth>2</bitWidth>
               <access>read-only</access>
             </field>
             <field>
-              <name>SPI_SMEM_DIN13_NUM</name>
+              <name>SMEM_DIN13_NUM</name>
               <description>the input signals are delayed by system clock cycles, 0: delayed by 1 cycle, 1: delayed by 2 cycles,...</description>
               <bitOffset>10</bitOffset>
               <bitWidth>2</bitWidth>
               <access>read-only</access>
             </field>
             <field>
-              <name>SPI_SMEM_DIN14_NUM</name>
+              <name>SMEM_DIN14_NUM</name>
               <description>the input signals are delayed by system clock cycles, 0: delayed by 1 cycle, 1: delayed by 2 cycles,...</description>
               <bitOffset>12</bitOffset>
               <bitWidth>2</bitWidth>
               <access>read-only</access>
             </field>
             <field>
-              <name>SPI_SMEM_DIN15_NUM</name>
+              <name>SMEM_DIN15_NUM</name>
               <description>the input signals are delayed by system clock cycles, 0: delayed by 1 cycle, 1: delayed by 2 cycles,...</description>
               <bitOffset>14</bitOffset>
               <bitWidth>2</bitWidth>
               <access>read-only</access>
             </field>
             <field>
-              <name>SPI_SMEM_DINS_HEX_NUM</name>
+              <name>SMEM_DINS_HEX_NUM</name>
               <description>the input signals are delayed by system clock cycles, 0: delayed by 1 cycle, 1: delayed by 2 cycles,...</description>
               <bitOffset>16</bitOffset>
               <bitWidth>2</bitWidth>
@@ -58020,69 +58004,69 @@ SHA2-512 : 0x00~0x80 \\</description>
           </fields>
         </register>
         <register>
-          <name>SPI_SMEM_DOUT_HEX_MODE</name>
+          <name>SMEM_DOUT_HEX_MODE</name>
           <description>MSPI 16x external RAM output timing adjustment control register</description>
           <addressOffset>0x1AC</addressOffset>
           <size>0x20</size>
           <fields>
             <field>
-              <name>SPI_SMEM_DOUT08_MODE</name>
+              <name>SMEM_DOUT08_MODE</name>
               <description>the output signals are delayed by system clock cycles, 0: output without delayed, 1: output with the posedge of clk_apb,2 output with the negedge of clk_apb, 3: output with the posedge of clk_160,4 output with the negedge of clk_160,5: output with the spi_clk high edge ,6: output with the spi_clk low edge</description>
               <bitOffset>0</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-only</access>
             </field>
             <field>
-              <name>SPI_SMEM_DOUT09_MODE</name>
+              <name>SMEM_DOUT09_MODE</name>
               <description>the output signals are delayed by system clock cycles, 0: output without delayed, 1: output with the posedge of clk_apb,2 output with the negedge of clk_apb, 3: output with the posedge of clk_160,4 output with the negedge of clk_160,5: output with the spi_clk high edge ,6: output with the spi_clk low edge</description>
               <bitOffset>1</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-only</access>
             </field>
             <field>
-              <name>SPI_SMEM_DOUT10_MODE</name>
+              <name>SMEM_DOUT10_MODE</name>
               <description>the output signals are delayed by system clock cycles, 0: output without delayed, 1: output with the posedge of clk_apb,2 output with the negedge of clk_apb, 3: output with the posedge of clk_160,4 output with the negedge of clk_160,5: output with the spi_clk high edge ,6: output with the spi_clk low edge</description>
               <bitOffset>2</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-only</access>
             </field>
             <field>
-              <name>SPI_SMEM_DOUT11_MODE</name>
+              <name>SMEM_DOUT11_MODE</name>
               <description>the output signals are delayed by system clock cycles, 0: output without delayed, 1: output with the posedge of clk_apb,2 output with the negedge of clk_apb, 3: output with the posedge of clk_160,4 output with the negedge of clk_160,5: output with the spi_clk high edge ,6: output with the spi_clk low edge</description>
               <bitOffset>3</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-only</access>
             </field>
             <field>
-              <name>SPI_SMEM_DOUT12_MODE</name>
+              <name>SMEM_DOUT12_MODE</name>
               <description>the output signals are delayed by system clock cycles, 0: output without delayed, 1: output with the posedge of clk_apb,2 output with the negedge of clk_apb, 3: output with the posedge of clk_160,4 output with the negedge of clk_160,5: output with the spi_clk high edge ,6: output with the spi_clk low edge</description>
               <bitOffset>4</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-only</access>
             </field>
             <field>
-              <name>SPI_SMEM_DOUT13_MODE</name>
+              <name>SMEM_DOUT13_MODE</name>
               <description>the output signals are delayed by system clock cycles, 0: output without delayed, 1: output with the posedge of clk_apb,2 output with the negedge of clk_apb, 3: output with the posedge of clk_160,4 output with the negedge of clk_160,5: output with the spi_clk high edge ,6: output with the spi_clk low edge</description>
               <bitOffset>5</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-only</access>
             </field>
             <field>
-              <name>SPI_SMEM_DOUT14_MODE</name>
+              <name>SMEM_DOUT14_MODE</name>
               <description>the output signals are delayed by system clock cycles, 0: output without delayed, 1: output with the posedge of clk_apb,2 output with the negedge of clk_apb, 3: output with the posedge of clk_160,4 output with the negedge of clk_160,5: output with the spi_clk high edge ,6: output with the spi_clk low edge</description>
               <bitOffset>6</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-only</access>
             </field>
             <field>
-              <name>SPI_SMEM_DOUT15_MODE</name>
+              <name>SMEM_DOUT15_MODE</name>
               <description>the output signals are delayed by system clock cycles, 0: output without delayed, 1: output with the posedge of clk_apb,2 output with the negedge of clk_apb, 3: output with the posedge of clk_160,4 output with the negedge of clk_160,5: output with the spi_clk high edge ,6: output with the spi_clk low edge</description>
               <bitOffset>7</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-only</access>
             </field>
             <field>
-              <name>SPI_SMEM_DOUTS_HEX_MODE</name>
+              <name>SMEM_DOUTS_HEX_MODE</name>
               <description>the output signals are delayed by system clock cycles, 0: output without delayed, 1: output with the posedge of clk_apb,2 output with the negedge of clk_apb, 3: output with the posedge of clk_160,4 output with the negedge of clk_160,5: output with the spi_clk high edge ,6: output with the spi_clk low edge</description>
               <bitOffset>8</bitOffset>
               <bitWidth>1</bitWidth>
@@ -58098,14 +58082,14 @@ SHA2-512 : 0x00~0x80 \\</description>
           <resetValue>0x00000003</resetValue>
           <fields>
             <field>
-              <name>SPI_CLK_EN</name>
+              <name>CLK_EN</name>
               <description>Register clock gate enable signal. 1: Enable. 0: Disable.</description>
               <bitOffset>0</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>SPI_MSPI_CLK_FORCE_ON</name>
+              <name>MSPI_CLK_FORCE_ON</name>
               <description>MSPI lowpower function clock gate force on signal. 1: Enable. 0: Disable.</description>
               <bitOffset>1</bitOffset>
               <bitWidth>1</bitWidth>
@@ -58402,7 +58386,7 @@ SHA2-512 : 0x00~0x80 \\</description>
           <size>0x20</size>
           <fields>
             <field>
-              <name>SPI_XTS_PLAIN</name>
+              <name>XTS_PLAIN</name>
               <description>This field is only used to generate include file in c case. This field is useless. Please do not use this field.</description>
               <bitOffset>0</bitOffset>
               <bitWidth>32</bitWidth>
@@ -58417,7 +58401,7 @@ SHA2-512 : 0x00~0x80 \\</description>
           <size>0x20</size>
           <fields>
             <field>
-              <name>SPI_XTS_LINESIZE</name>
+              <name>XTS_LINESIZE</name>
               <description>This bits stores the line-size parameter which will be used in manual encryption calculation. It decides how many bytes will be encrypted one time. 0: 16-bytes, 1: 32-bytes, 2: 64-bytes, 3:reserved.</description>
               <bitOffset>0</bitOffset>
               <bitWidth>2</bitWidth>
@@ -58432,7 +58416,7 @@ SHA2-512 : 0x00~0x80 \\</description>
           <size>0x20</size>
           <fields>
             <field>
-              <name>SPI_XTS_DESTINATION</name>
+              <name>XTS_DESTINATION</name>
               <description>This bit stores the destination parameter which will be used in manual encryption calculation. 0: flash(default), 1: psram(reserved). Only default value can be used.</description>
               <bitOffset>0</bitOffset>
               <bitWidth>1</bitWidth>
@@ -58447,7 +58431,7 @@ SHA2-512 : 0x00~0x80 \\</description>
           <size>0x20</size>
           <fields>
             <field>
-              <name>SPI_XTS_PHYSICAL_ADDRESS</name>
+              <name>XTS_PHYSICAL_ADDRESS</name>
               <description>This bits stores the physical-address parameter which will be used in manual encryption calculation. This value should aligned with byte number decided by line-size parameter.</description>
               <bitOffset>0</bitOffset>
               <bitWidth>30</bitWidth>
@@ -58462,7 +58446,7 @@ SHA2-512 : 0x00~0x80 \\</description>
           <size>0x20</size>
           <fields>
             <field>
-              <name>SPI_XTS_TRIGGER</name>
+              <name>XTS_TRIGGER</name>
               <description>Set this bit to trigger the process of manual encryption calculation. This action should only be asserted when manual encryption status is 0. After this action, manual encryption status becomes 1. After calculation is done, manual encryption status becomes 2.</description>
               <bitOffset>0</bitOffset>
               <bitWidth>1</bitWidth>
@@ -58477,7 +58461,7 @@ SHA2-512 : 0x00~0x80 \\</description>
           <size>0x20</size>
           <fields>
             <field>
-              <name>SPI_XTS_RELEASE</name>
+              <name>XTS_RELEASE</name>
               <description>Set this bit to release encrypted result to mspi. This action should only be asserted when manual encryption status is 2. After this action, manual encryption status will become 3.</description>
               <bitOffset>0</bitOffset>
               <bitWidth>1</bitWidth>
@@ -58492,7 +58476,7 @@ SHA2-512 : 0x00~0x80 \\</description>
           <size>0x20</size>
           <fields>
             <field>
-              <name>SPI_XTS_DESTROY</name>
+              <name>XTS_DESTROY</name>
               <description>Set this bit to destroy encrypted result. This action should be asserted only when manual encryption status is 3. After this action, manual encryption status will become 0.</description>
               <bitOffset>0</bitOffset>
               <bitWidth>1</bitWidth>
@@ -58507,7 +58491,7 @@ SHA2-512 : 0x00~0x80 \\</description>
           <size>0x20</size>
           <fields>
             <field>
-              <name>SPI_XTS_STATE</name>
+              <name>XTS_STATE</name>
               <description>This bits stores the status of manual encryption. 0: idle, 1: busy of encryption calculation, 2: encryption calculation is done but the encrypted result is invisible to mspi, 3: the encrypted result is visible to mspi.</description>
               <bitOffset>0</bitOffset>
               <bitWidth>2</bitWidth>
@@ -58528,7 +58512,7 @@ SHA2-512 : 0x00~0x80 \\</description>
           <description>MSPI-MMU item content register</description>
           <addressOffset>0x37C</addressOffset>
           <size>0x20</size>
-          <resetValue>0x0000037C</resetValue>
+          <resetValue>0x00000000</resetValue>
           <fields>
             <field>
               <name>PADDR</name>
@@ -58583,14 +58567,14 @@ SHA2-512 : 0x00~0x80 \\</description>
           <resetValue>0x13200000</resetValue>
           <fields>
             <field>
-              <name>SPI_MMU_MEM_FORCE_ON</name>
+              <name>MMU_MEM_FORCE_ON</name>
               <description>Set this bit to enable mmu-memory clock force on</description>
               <bitOffset>0</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>SPI_MMU_PAGE_SIZE</name>
+              <name>MMU_PAGE_SIZE</name>
               <description>0: Max page size , 1: Max page size/2 , 2: Max page size/4, 3: Max page size/8</description>
               <bitOffset>3</bitOffset>
               <bitWidth>2</bitWidth>
@@ -58627,21 +58611,21 @@ SHA2-512 : 0x00~0x80 \\</description>
           <resetValue>0x0000000F</resetValue>
           <fields>
             <field>
-              <name>SPI_CRYPT_SECURITY_LEVEL</name>
+              <name>CRYPT_SECURITY_LEVEL</name>
               <description>Set the security level of spi mem cryption. 0: Shut off cryption DPA funtion. 1-7: The bigger the number is, the more secure the cryption is. (Note that the performance of cryption will decrease together with this number increasing)</description>
               <bitOffset>0</bitOffset>
               <bitWidth>3</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>SPI_CRYPT_CALC_D_DPA_EN</name>
+              <name>CRYPT_CALC_D_DPA_EN</name>
               <description>Only available when SPI_CRYPT_SECURITY_LEVEL is not 0. 1: Enable DPA in the calculation that using key 1 or key 2. 0: Enable DPA only in the calculation that using key 1.</description>
               <bitOffset>3</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>SPI_CRYPT_DPA_SELECT_REGISTER</name>
+              <name>CRYPT_DPA_SELECT_REGISTER</name>
               <description>1: MSPI XTS DPA clock gate is controlled by SPI_CRYPT_CALC_D_DPA_EN and SPI_CRYPT_SECURITY_LEVEL. 0: Controlled by efuse bits.</description>
               <bitOffset>4</bitOffset>
               <bitWidth>1</bitWidth>
@@ -59566,7 +59550,7 @@ SHA2-512 : 0x00~0x80 \\</description>
               <access>read-write</access>
             </field>
             <field>
-              <name>SPI_FMEM_RD_SUS_2B</name>
+              <name>FMEM_RD_SUS_2B</name>
               <description>1: Read two bytes when check flash SUS/SUS1/SUS2 status bit. 0:  Read one byte when check flash SUS/SUS1/SUS2 status bit</description>
               <bitOffset>22</bitOffset>
               <bitWidth>1</bitWidth>
@@ -59933,98 +59917,98 @@ SHA2-512 : 0x00~0x80 \\</description>
           <resetValue>0x00000020</resetValue>
           <fields>
             <field>
-              <name>SPI_FMEM_DDR_EN</name>
+              <name>FMEM_DDR_EN</name>
               <description>1: in ddr mode,  0 in sdr mode</description>
               <bitOffset>0</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>SPI_FMEM_VAR_DUMMY</name>
+              <name>FMEM_VAR_DUMMY</name>
               <description>Set the bit to enable variable dummy cycle in spi ddr mode.</description>
               <bitOffset>1</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>SPI_FMEM_DDR_RDAT_SWP</name>
+              <name>FMEM_DDR_RDAT_SWP</name>
               <description>Set the bit to reorder rx data of the word in spi ddr mode.</description>
               <bitOffset>2</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>SPI_FMEM_DDR_WDAT_SWP</name>
+              <name>FMEM_DDR_WDAT_SWP</name>
               <description>Set the bit to reorder tx data of the word in spi ddr mode.</description>
               <bitOffset>3</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>SPI_FMEM_DDR_CMD_DIS</name>
+              <name>FMEM_DDR_CMD_DIS</name>
               <description>the bit is used to disable dual edge in command phase when ddr mode.</description>
               <bitOffset>4</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>SPI_FMEM_OUTMINBYTELEN</name>
+              <name>FMEM_OUTMINBYTELEN</name>
               <description>It is the minimum output data length in the panda device.</description>
               <bitOffset>5</bitOffset>
               <bitWidth>7</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>SPI_FMEM_USR_DDR_DQS_THD</name>
+              <name>FMEM_USR_DDR_DQS_THD</name>
               <description>The delay number of data strobe which from memory based on SPI clock.</description>
               <bitOffset>14</bitOffset>
               <bitWidth>7</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>SPI_FMEM_DDR_DQS_LOOP</name>
+              <name>FMEM_DDR_DQS_LOOP</name>
               <description>1: Do not need the input of SPI_DQS signal, SPI0 starts to receive data when spi0_slv_st is in SPI_MEM_DIN state. It is used when there is no SPI_DQS signal or SPI_DQS signal is not stable. 0: SPI0 starts to store data at the positive and negative edge of SPI_DQS.</description>
               <bitOffset>21</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>SPI_FMEM_CLK_DIFF_EN</name>
+              <name>FMEM_CLK_DIFF_EN</name>
               <description>Set this bit to enable the differential SPI_CLK#.</description>
               <bitOffset>24</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>SPI_FMEM_DQS_CA_IN</name>
+              <name>FMEM_DQS_CA_IN</name>
               <description>Set this bit to enable the input of SPI_DQS signal in SPI phases of CMD and ADDR.</description>
               <bitOffset>26</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>SPI_FMEM_HYPERBUS_DUMMY_2X</name>
+              <name>FMEM_HYPERBUS_DUMMY_2X</name>
               <description>Set this bit to enable the vary dummy function in SPI HyperBus mode, when SPI0 accesses flash or SPI1 accesses flash or sram.</description>
               <bitOffset>27</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>SPI_FMEM_CLK_DIFF_INV</name>
+              <name>FMEM_CLK_DIFF_INV</name>
               <description>Set this bit to invert SPI_DIFF when accesses to flash. .</description>
               <bitOffset>28</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>SPI_FMEM_OCTA_RAM_ADDR</name>
+              <name>FMEM_OCTA_RAM_ADDR</name>
               <description>Set this bit to enable octa_ram address out when accesses to flash, which means ADDR_OUT[31:0] = {spi_usr_addr_value[25:4], 6'd0, spi_usr_addr_value[3:1], 1'b0}.</description>
               <bitOffset>29</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>SPI_FMEM_HYPERBUS_CA</name>
+              <name>FMEM_HYPERBUS_CA</name>
               <description>Set this bit to enable HyperRAM address out when accesses to flash, which means ADDR_OUT[31:0] = {spi_usr_addr_value[19:4], 13'd0, spi_usr_addr_value[3:1]}.</description>
               <bitOffset>30</bitOffset>
               <bitWidth>1</bitWidth>
@@ -69737,6 +69721,1569 @@ Measurement unit: XTAL_CLK  \\</description>
           <name>DATE</name>
           <description>need_des</description>
           <addressOffset>0xFC</addressOffset>
+          <size>0x20</size>
+          <access>read-write</access>
+          <resetValue>0x00000000</resetValue>
+        </register>
+      </registers>
+    </peripheral>
+    <peripheral>
+      <name>IEEE802154</name>
+      <description>IEEE802154 Peripheral</description>
+      <baseAddress>0x600C3000</baseAddress>
+      <registers>
+        <register>
+          <name>COMMAND</name>
+          <addressOffset>0x0</addressOffset>
+          <size>0x20</size>
+          <fields>
+            <field>
+              <name>OPCODE</name>
+              <bitOffset>0</bitOffset>
+              <bitWidth>8</bitWidth>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>CTRL_CFG</name>
+          <addressOffset>0x4</addressOffset>
+          <size>0x20</size>
+          <fields>
+            <field>
+              <name>HW_AUTO_ACK_TX_EN</name>
+              <bitOffset>0</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>HW_ENHANCE_ACK_TX_EN</name>
+              <bitOffset>1</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>HW_AUTO_ACK_RX_EN</name>
+              <bitOffset>3</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>DIS_IFS_CONTROL</name>
+              <bitOffset>5</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>PAN_COORDINATOR</name>
+              <bitOffset>6</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>PROMISCUOUS_MODE</name>
+              <bitOffset>7</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>DIS_FRAME_VERSION_RSV_FILTER</name>
+              <bitOffset>11</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>AUTOPEND_ENHANCE</name>
+              <bitOffset>12</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>TX_WAIT_ACK_TIMEOUT_EN</name>
+              <bitOffset>13</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>FILTER_ENHANCE</name>
+              <bitOffset>14</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>COEX_ARB_DELAY</name>
+              <bitOffset>16</bitOffset>
+              <bitWidth>8</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>BIT_ORDER</name>
+              <bitOffset>24</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>NO_RSS_TRK_ENB</name>
+              <bitOffset>25</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>FORCE_RX_ENB</name>
+              <bitOffset>26</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>RX_DONE_TRIGGER_IDLE</name>
+              <bitOffset>27</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>MAC_INF0_ENABLE</name>
+              <bitOffset>28</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>MAC_INF1_ENABLE</name>
+              <bitOffset>29</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>MAC_INF2_ENABLE</name>
+              <bitOffset>30</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>MAC_INF3_ENABLE</name>
+              <bitOffset>31</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+        <cluster>
+          <dim>4</dim>
+          <dimIncrement>0x10</dimIncrement>
+          <dimIndex>0-3</dimIndex>
+          <name>INF%s</name>
+          <description>Cluster INF%s, containing INF?_EXTEND_ADDR0, INF?_EXTEND_ADDR1, INF?_PAN_ID, INF?_SHORT_ADDR</description>
+          <addressOffset>0x8</addressOffset>
+          <register>
+            <name>EXTEND_ADDR0</name>
+            <addressOffset>0x8</addressOffset>
+            <size>0x20</size>
+            <fields>
+              <field>
+                <name>EXTEND_ADDR0</name>
+                <bitOffset>0</bitOffset>
+                <bitWidth>32</bitWidth>
+                <access>read-write</access>
+              </field>
+            </fields>
+          </register>
+          <register>
+            <name>EXTEND_ADDR1</name>
+            <addressOffset>0xC</addressOffset>
+            <size>0x20</size>
+            <fields>
+              <field>
+                <name>EXTEND_ADDR1</name>
+                <bitOffset>0</bitOffset>
+                <bitWidth>32</bitWidth>
+                <access>read-write</access>
+              </field>
+            </fields>
+          </register>
+          <register>
+            <name>PAN_ID</name>
+            <addressOffset>0x4</addressOffset>
+            <size>0x20</size>
+            <fields>
+              <field>
+                <name>PAN_ID</name>
+                <bitOffset>0</bitOffset>
+                <bitWidth>16</bitWidth>
+                <access>read-write</access>
+              </field>
+            </fields>
+          </register>
+          <register>
+            <name>SHORT_ADDR</name>
+            <addressOffset>0x0</addressOffset>
+            <size>0x20</size>
+            <fields>
+              <field>
+                <name>SHORT_ADDR</name>
+                <bitOffset>0</bitOffset>
+                <bitWidth>16</bitWidth>
+                <access>read-write</access>
+              </field>
+            </fields>
+          </register>
+        </cluster>
+        <register>
+          <name>CHANNEL</name>
+          <addressOffset>0x48</addressOffset>
+          <size>0x20</size>
+          <fields>
+            <field>
+              <name>HOP</name>
+              <bitOffset>0</bitOffset>
+              <bitWidth>8</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>SEC_HOP</name>
+              <bitOffset>8</bitOffset>
+              <bitWidth>8</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>RX_MULTI_CH_EN</name>
+              <bitOffset>16</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>RX_WAIT_PREMABLE_TIME</name>
+              <bitOffset>17</bitOffset>
+              <bitWidth>7</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>RX_PREAMBLE_PATTERN_SEL</name>
+              <bitOffset>24</bitOffset>
+              <bitWidth>2</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>PRI_CH_I2C_SEL</name>
+              <bitOffset>26</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>SEC_CH_I2C_SEL</name>
+              <bitOffset>27</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>FAST_FREQHOP_ENA</name>
+              <bitOffset>28</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>TX_POWER</name>
+          <addressOffset>0x4C</addressOffset>
+          <size>0x20</size>
+          <fields>
+            <field>
+              <name>TX_POWER</name>
+              <bitOffset>0</bitOffset>
+              <bitWidth>8</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>CENTRAL_FREQUENCY</name>
+              <bitOffset>8</bitOffset>
+              <bitWidth>8</bitWidth>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>ED_SCAN_DURATION</name>
+          <addressOffset>0x50</addressOffset>
+          <size>0x20</size>
+          <fields>
+            <field>
+              <name>ED_SCAN_DURATION</name>
+              <bitOffset>0</bitOffset>
+              <bitWidth>24</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>ED_SCAN_WAIT_DLY</name>
+              <bitOffset>24</bitOffset>
+              <bitWidth>4</bitWidth>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>ED_SCAN_CFG</name>
+          <addressOffset>0x54</addressOffset>
+          <size>0x20</size>
+          <fields>
+            <field>
+              <name>CCA_ED_THRESHOLD</name>
+              <bitOffset>0</bitOffset>
+              <bitWidth>8</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>ED_SAMPLE_MODE</name>
+              <bitOffset>11</bitOffset>
+              <bitWidth>2</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>DIS_ED_POWER_SEL</name>
+              <bitOffset>13</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>CCA_MODE</name>
+              <bitOffset>14</bitOffset>
+              <bitWidth>2</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>ED_RSS</name>
+              <bitOffset>16</bitOffset>
+              <bitWidth>8</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>CCA_BUSY</name>
+              <bitOffset>24</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>IFS</name>
+          <addressOffset>0x58</addressOffset>
+          <size>0x20</size>
+          <fields>
+            <field>
+              <name>SIFS</name>
+              <bitOffset>0</bitOffset>
+              <bitWidth>8</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>RX_WAIT_SYMDEC_ON_TIME</name>
+              <bitOffset>8</bitOffset>
+              <bitWidth>7</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>RX_WAIT_SYMDEC_ON_ENA</name>
+              <bitOffset>15</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>LIFS</name>
+              <bitOffset>16</bitOffset>
+              <bitWidth>10</bitWidth>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>ACK_TIMEOUT</name>
+          <addressOffset>0x5C</addressOffset>
+          <size>0x20</size>
+          <fields>
+            <field>
+              <name>ACK_TIMEOUT</name>
+              <bitOffset>0</bitOffset>
+              <bitWidth>16</bitWidth>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>EVENT_EN</name>
+          <addressOffset>0x60</addressOffset>
+          <size>0x20</size>
+          <fields>
+            <field>
+              <name>EVENT_EN</name>
+              <bitOffset>0</bitOffset>
+              <bitWidth>13</bitWidth>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>EVENT_STATUS</name>
+          <addressOffset>0x64</addressOffset>
+          <size>0x20</size>
+          <fields>
+            <field>
+              <name>EVENT_STATUS</name>
+              <bitOffset>0</bitOffset>
+              <bitWidth>13</bitWidth>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>RX_ABORT_INTR_CTRL</name>
+          <addressOffset>0x68</addressOffset>
+          <size>0x20</size>
+          <fields>
+            <field>
+              <name>RX_ABORT_INTR_CTRL</name>
+              <bitOffset>0</bitOffset>
+              <bitWidth>31</bitWidth>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>ACK_FRAME_PENDING_EN</name>
+          <addressOffset>0x6C</addressOffset>
+          <size>0x20</size>
+          <fields>
+            <field>
+              <name>ACK_FRAME_PENDING_EN</name>
+              <bitOffset>0</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>ACK_TX_ACK_TIMEOUT</name>
+              <bitOffset>16</bitOffset>
+              <bitWidth>16</bitWidth>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>COEX_PTI</name>
+          <addressOffset>0x70</addressOffset>
+          <size>0x20</size>
+          <fields>
+            <field>
+              <name>COEX_PTI</name>
+              <bitOffset>0</bitOffset>
+              <bitWidth>5</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>COEX_ACK_PTI</name>
+              <bitOffset>5</bitOffset>
+              <bitWidth>5</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>CLOSE_RF_SEL</name>
+              <bitOffset>10</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>ANT_MODE</name>
+              <bitOffset>11</bitOffset>
+              <bitWidth>3</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>HW_TX_ACK_ANT_MODE</name>
+              <bitOffset>14</bitOffset>
+              <bitWidth>3</bitWidth>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>TX_ABORT_INTERRUPT_CONTROL</name>
+          <addressOffset>0x78</addressOffset>
+          <size>0x20</size>
+          <fields>
+            <field>
+              <name>TX_ABORT_INTERRUPT_CONTROL</name>
+              <bitOffset>0</bitOffset>
+              <bitWidth>31</bitWidth>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>ENHANCE_ACK_CFG</name>
+          <addressOffset>0x7C</addressOffset>
+          <size>0x20</size>
+          <fields>
+            <field>
+              <name>TX_ENH_ACK_GENERATE_DONE_NOTIFY</name>
+              <bitOffset>0</bitOffset>
+              <bitWidth>32</bitWidth>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>RX_STATUS</name>
+          <addressOffset>0x80</addressOffset>
+          <size>0x20</size>
+          <fields>
+            <field>
+              <name>FILTER_FAIL_STATUS</name>
+              <bitOffset>0</bitOffset>
+              <bitWidth>4</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>RX_ABORT_STATUS</name>
+              <bitOffset>4</bitOffset>
+              <bitWidth>5</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>RX_STATE</name>
+              <bitOffset>16</bitOffset>
+              <bitWidth>3</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>CUR_CH_INDEX</name>
+              <bitOffset>19</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>PREAMBLE_MATCH</name>
+              <bitOffset>20</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>SFD_MATCH</name>
+              <bitOffset>21</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>TX_STATUS</name>
+          <addressOffset>0x84</addressOffset>
+          <size>0x20</size>
+          <fields>
+            <field>
+              <name>TX_STATE</name>
+              <bitOffset>0</bitOffset>
+              <bitWidth>4</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>TX_ABORT_STATUS</name>
+              <bitOffset>4</bitOffset>
+              <bitWidth>5</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>TX_SEC_ERROR_CODE</name>
+              <bitOffset>16</bitOffset>
+              <bitWidth>4</bitWidth>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>TXRX_STATUS</name>
+          <addressOffset>0x88</addressOffset>
+          <size>0x20</size>
+          <fields>
+            <field>
+              <name>TXRX_STATE</name>
+              <bitOffset>0</bitOffset>
+              <bitWidth>4</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>TX_PROC</name>
+              <bitOffset>8</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>RX_PROC</name>
+              <bitOffset>9</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>ED_PROC</name>
+              <bitOffset>10</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>ED_TRIGGER_TX_PROC</name>
+              <bitOffset>11</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>RF_CTRL_STATE</name>
+              <bitOffset>16</bitOffset>
+              <bitWidth>4</bitWidth>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>TX_CCM_SCHEDULE_STATUS</name>
+          <addressOffset>0x8C</addressOffset>
+          <size>0x20</size>
+          <fields>
+            <field>
+              <name>TX_CCM_SCHEDULE_STATUS</name>
+              <bitOffset>0</bitOffset>
+              <bitWidth>31</bitWidth>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>RX_LENGTH</name>
+          <addressOffset>0xA4</addressOffset>
+          <size>0x20</size>
+          <fields>
+            <field>
+              <name>RX_LENGTH</name>
+              <bitOffset>0</bitOffset>
+              <bitWidth>7</bitWidth>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+        <cluster>
+          <dim>2</dim>
+          <dimIncrement>0x8</dimIncrement>
+          <dimIndex>0-1</dimIndex>
+          <name>TIME%s</name>
+          <description>Cluster TIME%s, containing TIME?_THRESHOLD, TIME?_VALUE</description>
+          <addressOffset>0xA8</addressOffset>
+          <register>
+            <name>THRESHOLD</name>
+            <addressOffset>0x0</addressOffset>
+            <size>0x20</size>
+            <fields>
+              <field>
+                <name>TIMER0_THRESHOLD</name>
+                <bitOffset>0</bitOffset>
+                <bitWidth>32</bitWidth>
+                <access>read-write</access>
+              </field>
+            </fields>
+          </register>
+          <register>
+            <name>VALUE</name>
+            <addressOffset>0x4</addressOffset>
+            <size>0x20</size>
+            <fields>
+              <field>
+                <name>TIMER0_VALUE</name>
+                <bitOffset>0</bitOffset>
+                <bitWidth>32</bitWidth>
+                <access>read-write</access>
+              </field>
+            </fields>
+          </register>
+        </cluster>
+        <register>
+          <name>CLK_COUNTER_MATCH_VAL</name>
+          <addressOffset>0xB8</addressOffset>
+          <size>0x20</size>
+          <fields>
+            <field>
+              <name>CLK_COUNT_MATCH_VAL</name>
+              <bitOffset>0</bitOffset>
+              <bitWidth>16</bitWidth>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>CLK_COUNTER</name>
+          <addressOffset>0xBC</addressOffset>
+          <size>0x20</size>
+          <fields>
+            <field>
+              <name>CLK_625US_CNT</name>
+              <bitOffset>0</bitOffset>
+              <bitWidth>16</bitWidth>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>IFS_COUNTER</name>
+          <addressOffset>0xC0</addressOffset>
+          <size>0x20</size>
+          <fields>
+            <field>
+              <name>IFS_COUNTER</name>
+              <bitOffset>0</bitOffset>
+              <bitWidth>10</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>IFS_COUNTER_EN</name>
+              <bitOffset>16</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>SFD_WAIT_SYMBOL</name>
+          <addressOffset>0xC4</addressOffset>
+          <size>0x20</size>
+          <fields>
+            <field>
+              <name>SFD_WAIT_SYMBOL_NUM</name>
+              <bitOffset>0</bitOffset>
+              <bitWidth>4</bitWidth>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>TXRX_PATH_DELAY</name>
+          <addressOffset>0xC8</addressOffset>
+          <size>0x20</size>
+          <fields>
+            <field>
+              <name>TX_PATH_DELAY</name>
+              <bitOffset>0</bitOffset>
+              <bitWidth>7</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>RX_PATH_DELAY</name>
+              <bitOffset>16</bitOffset>
+              <bitWidth>7</bitWidth>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>BB_CLK</name>
+          <addressOffset>0xCC</addressOffset>
+          <size>0x20</size>
+          <fields>
+            <field>
+              <name>BB_CLK_FREQ_MINUS_1</name>
+              <bitOffset>0</bitOffset>
+              <bitWidth>5</bitWidth>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>TXDMA_ADDR</name>
+          <addressOffset>0xD0</addressOffset>
+          <size>0x20</size>
+          <fields>
+            <field>
+              <name>TXDMA_ADDR</name>
+              <bitOffset>0</bitOffset>
+              <bitWidth>32</bitWidth>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>TXDMA_CTRL_STATE</name>
+          <addressOffset>0xD4</addressOffset>
+          <size>0x20</size>
+          <fields>
+            <field>
+              <name>TXDMA_WATER_LEVEL</name>
+              <bitOffset>0</bitOffset>
+              <bitWidth>3</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>TXDMA_LEN_ERR_FLUSH</name>
+              <bitOffset>3</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>TXDMA_FILL_ENTRY</name>
+              <bitOffset>4</bitOffset>
+              <bitWidth>3</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>TXDMA_STATE</name>
+              <bitOffset>16</bitOffset>
+              <bitWidth>5</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>TXDMA_FETCH_BYTE_CNT</name>
+              <bitOffset>24</bitOffset>
+              <bitWidth>7</bitWidth>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>TXDMA_ERR</name>
+          <addressOffset>0xD8</addressOffset>
+          <size>0x20</size>
+          <fields>
+            <field>
+              <name>TXDMA_ERR</name>
+              <bitOffset>0</bitOffset>
+              <bitWidth>4</bitWidth>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>RXDMA_ADDR</name>
+          <addressOffset>0xE0</addressOffset>
+          <size>0x20</size>
+          <fields>
+            <field>
+              <name>RXDMA_ADDR</name>
+              <bitOffset>0</bitOffset>
+              <bitWidth>32</bitWidth>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>RXDMA_CTRL_STATE</name>
+          <addressOffset>0xE4</addressOffset>
+          <size>0x20</size>
+          <fields>
+            <field>
+              <name>RXDMA_WATER_LEVEL</name>
+              <bitOffset>0</bitOffset>
+              <bitWidth>3</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>RXDMA_STATE</name>
+              <bitOffset>16</bitOffset>
+              <bitWidth>5</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>RXDMA_APPEND_LQI_OFFSET</name>
+              <bitOffset>24</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>RXDMA_APPEND_FREQ_OFFSET</name>
+              <bitOffset>25</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>RXDMA_FREQ_OFFSET_IS_RXFILTER_INFO</name>
+              <bitOffset>26</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>RXDMA_ERR</name>
+          <addressOffset>0xE8</addressOffset>
+          <size>0x20</size>
+          <fields>
+            <field>
+              <name>RXDMA_ERR</name>
+              <bitOffset>0</bitOffset>
+              <bitWidth>4</bitWidth>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>DMA_GCK_CFG</name>
+          <addressOffset>0xF0</addressOffset>
+          <size>0x20</size>
+          <fields>
+            <field>
+              <name>DMA_GCK_CFG</name>
+              <bitOffset>0</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>DMA_DUMMY</name>
+          <addressOffset>0xF4</addressOffset>
+          <size>0x20</size>
+          <fields>
+            <field>
+              <name>DMA_DUMMY_DATA</name>
+              <bitOffset>0</bitOffset>
+              <bitWidth>32</bitWidth>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>PAON_DELAY</name>
+          <addressOffset>0x100</addressOffset>
+          <size>0x20</size>
+          <fields>
+            <field>
+              <name>PAON_DELAY</name>
+              <bitOffset>0</bitOffset>
+              <bitWidth>10</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>PLLON_TRX_DELAY_MULTI_CH</name>
+              <bitOffset>10</bitOffset>
+              <bitWidth>10</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>PLLON_TRX_DELAY_FAST_FREQHOP</name>
+              <bitOffset>20</bitOffset>
+              <bitWidth>10</bitWidth>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>TXON_DELAY</name>
+          <addressOffset>0x104</addressOffset>
+          <size>0x20</size>
+          <fields>
+            <field>
+              <name>TXON_DELAY</name>
+              <bitOffset>0</bitOffset>
+              <bitWidth>10</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>TX_START_DELAY</name>
+              <bitOffset>10</bitOffset>
+              <bitWidth>10</bitWidth>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>TXEN_STOP_DELAY</name>
+          <addressOffset>0x108</addressOffset>
+          <size>0x20</size>
+          <fields>
+            <field>
+              <name>TXEN_STOP_DLY</name>
+              <bitOffset>0</bitOffset>
+              <bitWidth>6</bitWidth>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>TXOFF_DELAY</name>
+          <addressOffset>0x10C</addressOffset>
+          <size>0x20</size>
+          <fields>
+            <field>
+              <name>TXOFF_DELAY</name>
+              <bitOffset>0</bitOffset>
+              <bitWidth>6</bitWidth>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>RXON_DELAY</name>
+          <addressOffset>0x110</addressOffset>
+          <size>0x20</size>
+          <fields>
+            <field>
+              <name>RXON_DELAY</name>
+              <bitOffset>0</bitOffset>
+              <bitWidth>11</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>RXON_DELAY_MULTI_CH</name>
+              <bitOffset>11</bitOffset>
+              <bitWidth>11</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>RXON_DELAY_FAST_FREQHOP</name>
+              <bitOffset>22</bitOffset>
+              <bitWidth>10</bitWidth>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>TXRX_SWITCH_DELAY</name>
+          <addressOffset>0x114</addressOffset>
+          <size>0x20</size>
+          <fields>
+            <field>
+              <name>TXRX_SWITCH_DELAY</name>
+              <bitOffset>0</bitOffset>
+              <bitWidth>10</bitWidth>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>CONT_RX_DELAY</name>
+          <addressOffset>0x118</addressOffset>
+          <size>0x20</size>
+          <fields>
+            <field>
+              <name>CONT_RX_DELAY</name>
+              <bitOffset>0</bitOffset>
+              <bitWidth>6</bitWidth>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>DCDC_CTRL</name>
+          <addressOffset>0x11C</addressOffset>
+          <size>0x20</size>
+          <fields>
+            <field>
+              <name>DCDC_PRE_UP_DELAY</name>
+              <bitOffset>0</bitOffset>
+              <bitWidth>8</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>DCDC_DOWN_DELAY</name>
+              <bitOffset>8</bitOffset>
+              <bitWidth>8</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>DCDC_CTRL_EN</name>
+              <bitOffset>16</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>TX_DCDC_UP</name>
+              <bitOffset>31</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>DEBUG_CTRL</name>
+          <addressOffset>0x120</addressOffset>
+          <size>0x20</size>
+          <fields>
+            <field>
+              <name>DEBUG_SIGNAL_SEL</name>
+              <bitOffset>0</bitOffset>
+              <bitWidth>3</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>DEBUG_TRIGGER_STATE_SELECT</name>
+              <bitOffset>8</bitOffset>
+              <bitWidth>4</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>DEBUG_SER_DEBUG_SEL</name>
+              <bitOffset>12</bitOffset>
+              <bitWidth>4</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>DEBUG_TRIGGER_STATE_MATCH_VALUE</name>
+              <bitOffset>16</bitOffset>
+              <bitWidth>5</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>DEBUG_TRIGGER_PULSE_SELECT</name>
+              <bitOffset>24</bitOffset>
+              <bitWidth>3</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>DEBUG_STATE_MATCH_DUMP_EN</name>
+              <bitOffset>30</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>DEBUG_TRIGGER_DUMP_EN</name>
+              <bitOffset>31</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>SEC_CTRL</name>
+          <addressOffset>0x128</addressOffset>
+          <size>0x20</size>
+          <fields>
+            <field>
+              <name>SEC_EN</name>
+              <bitOffset>0</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>SEC_PAYLOAD_OFFSET</name>
+              <bitOffset>8</bitOffset>
+              <bitWidth>7</bitWidth>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>SEC_EXTEND_ADDRESS0</name>
+          <addressOffset>0x12C</addressOffset>
+          <size>0x20</size>
+          <fields>
+            <field>
+              <name>SEC_EXTEND_ADDRESS0</name>
+              <bitOffset>0</bitOffset>
+              <bitWidth>32</bitWidth>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>SEC_EXTEND_ADDRESS1</name>
+          <addressOffset>0x130</addressOffset>
+          <size>0x20</size>
+          <fields>
+            <field>
+              <name>SEC_EXTEND_ADDRESS1</name>
+              <bitOffset>0</bitOffset>
+              <bitWidth>32</bitWidth>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <dim>4</dim>
+          <dimIncrement>0x4</dimIncrement>
+          <dimIndex>0-3</dimIndex>
+          <name>SEC_KEY%s</name>
+          <addressOffset>0x134</addressOffset>
+          <size>0x20</size>
+          <fields>
+            <field>
+              <name>SEC_KEY0</name>
+              <bitOffset>0</bitOffset>
+              <bitWidth>32</bitWidth>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>SFD_TIMEOUT_CNT</name>
+          <addressOffset>0x144</addressOffset>
+          <size>0x20</size>
+          <fields>
+            <field>
+              <name>SFD_TIMEOUT_CNT</name>
+              <bitOffset>0</bitOffset>
+              <bitWidth>16</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>RX_FILTER_NOT_WORK_CNT</name>
+              <bitOffset>16</bitOffset>
+              <bitWidth>16</bitWidth>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>CRC_ERROR_CNT</name>
+          <addressOffset>0x148</addressOffset>
+          <size>0x20</size>
+          <fields>
+            <field>
+              <name>CRC_ERROR_CNT</name>
+              <bitOffset>0</bitOffset>
+              <bitWidth>16</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>RX_PREAMBLE_DETECT_ERR_CNT</name>
+              <bitOffset>16</bitOffset>
+              <bitWidth>16</bitWidth>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>ED_ABORT_CNT</name>
+          <addressOffset>0x14C</addressOffset>
+          <size>0x20</size>
+          <fields>
+            <field>
+              <name>ED_ABORT_CNT</name>
+              <bitOffset>0</bitOffset>
+              <bitWidth>16</bitWidth>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>CCA_FAIL_CNT</name>
+          <addressOffset>0x150</addressOffset>
+          <size>0x20</size>
+          <fields>
+            <field>
+              <name>CCA_FAIL_CNT</name>
+              <bitOffset>0</bitOffset>
+              <bitWidth>16</bitWidth>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>RX_FILTER_FAIL_CNT</name>
+          <addressOffset>0x154</addressOffset>
+          <size>0x20</size>
+          <fields>
+            <field>
+              <name>RX_FILTER_FAIL_CNT</name>
+              <bitOffset>0</bitOffset>
+              <bitWidth>16</bitWidth>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>NO_RSS_DETECT_CNT</name>
+          <addressOffset>0x158</addressOffset>
+          <size>0x20</size>
+          <fields>
+            <field>
+              <name>NO_RSS_DETECT_CNT</name>
+              <bitOffset>0</bitOffset>
+              <bitWidth>16</bitWidth>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>RX_ABORT_COEX_CNT</name>
+          <addressOffset>0x15C</addressOffset>
+          <size>0x20</size>
+          <fields>
+            <field>
+              <name>RX_ABORT_COEX_CNT</name>
+              <bitOffset>0</bitOffset>
+              <bitWidth>16</bitWidth>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>RX_RESTART_CNT</name>
+          <addressOffset>0x160</addressOffset>
+          <size>0x20</size>
+          <fields>
+            <field>
+              <name>RX_RESTART_CNT</name>
+              <bitOffset>0</bitOffset>
+              <bitWidth>16</bitWidth>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>TX_ACK_ABORT_COEX_CNT</name>
+          <addressOffset>0x164</addressOffset>
+          <size>0x20</size>
+          <fields>
+            <field>
+              <name>TX_ACK_ABORT_COEX_CNT</name>
+              <bitOffset>0</bitOffset>
+              <bitWidth>16</bitWidth>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>ED_SCAN_COEX_CNT</name>
+          <addressOffset>0x168</addressOffset>
+          <size>0x20</size>
+          <fields>
+            <field>
+              <name>ED_SCAN_COEX_CNT</name>
+              <bitOffset>0</bitOffset>
+              <bitWidth>16</bitWidth>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>RX_ACK_ABORT_COEX_CNT</name>
+          <addressOffset>0x16C</addressOffset>
+          <size>0x20</size>
+          <fields>
+            <field>
+              <name>RX_ACK_ABORT_COEX_CNT</name>
+              <bitOffset>0</bitOffset>
+              <bitWidth>16</bitWidth>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>RX_ACK_TIMEOUT_CNT</name>
+          <addressOffset>0x170</addressOffset>
+          <size>0x20</size>
+          <fields>
+            <field>
+              <name>RX_ACK_TIMEOUT_CNT</name>
+              <bitOffset>0</bitOffset>
+              <bitWidth>16</bitWidth>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>TX_BREAK_COEX_CNT</name>
+          <addressOffset>0x174</addressOffset>
+          <size>0x20</size>
+          <fields>
+            <field>
+              <name>TX_BREAK_COEX_CNT</name>
+              <bitOffset>0</bitOffset>
+              <bitWidth>16</bitWidth>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>TX_SECURITY_ERROR_CNT</name>
+          <addressOffset>0x178</addressOffset>
+          <size>0x20</size>
+          <fields>
+            <field>
+              <name>TX_SECURITY_ERROR_CNT</name>
+              <bitOffset>0</bitOffset>
+              <bitWidth>16</bitWidth>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>CCA_BUSY_CNT</name>
+          <addressOffset>0x17C</addressOffset>
+          <size>0x20</size>
+          <fields>
+            <field>
+              <name>CCA_BUSY_CNT</name>
+              <bitOffset>0</bitOffset>
+              <bitWidth>16</bitWidth>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>ERROR_CNT_CLEAR</name>
+          <addressOffset>0x180</addressOffset>
+          <size>0x20</size>
+          <fields>
+            <field>
+              <name>ED_SCAN_COEX_CNT_CLEAR</name>
+              <bitOffset>0</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>CCA_BUSY_CNT_CLEAR</name>
+              <bitOffset>1</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>CCA_FAIL_CNT_CLEAR</name>
+              <bitOffset>2</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>ED_ABORT_CNT_CLEAR</name>
+              <bitOffset>3</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>TX_SECURITY_ERROR_CNT_CLEAR</name>
+              <bitOffset>4</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>TX_BREAK_COEX_CNT_CLEAR</name>
+              <bitOffset>5</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>TX_ACK_ABORT_COEX_CNT_CLEAR</name>
+              <bitOffset>6</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>RX_ACK_TIMEOUT_CNT_CLEAR</name>
+              <bitOffset>7</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>RX_RESTART_CNT_CLEAR</name>
+              <bitOffset>8</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>RX_ACK_ABORT_COEX_CNT_CLEAR</name>
+              <bitOffset>9</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>RX_ABORT_COEX_CNT_CLEAR</name>
+              <bitOffset>10</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>NO_RSS_DETECT_CNT_CLEAR</name>
+              <bitOffset>11</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>RX_FILTER_FAIL_CNT_CLEAR</name>
+              <bitOffset>12</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>CRC_ERROR_CNT_CLEAR</name>
+              <bitOffset>13</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>SFD_TIMEOUT_CNT_CLEAR</name>
+              <bitOffset>14</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>RX_FILTER_NOT_WORK_CNT_CLEAR</name>
+              <bitOffset>15</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>RX_PREAMBLE_DETECT_ERR_CNT_CLEAR</name>
+              <bitOffset>16</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>DEBUG_SEL_CFG0</name>
+          <addressOffset>0x184</addressOffset>
+          <size>0x20</size>
+          <fields>
+            <field>
+              <name>DEBUG_FIELD0_SEL</name>
+              <bitOffset>0</bitOffset>
+              <bitWidth>5</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>DEBUG_FIELD1_SEL</name>
+              <bitOffset>8</bitOffset>
+              <bitWidth>5</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>DEBUG_FIELD2_SEL</name>
+              <bitOffset>16</bitOffset>
+              <bitWidth>5</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>DEBUG_FIELD3_SEL</name>
+              <bitOffset>24</bitOffset>
+              <bitWidth>5</bitWidth>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>DEBUG_SEL_CFG1</name>
+          <addressOffset>0x188</addressOffset>
+          <size>0x20</size>
+          <fields>
+            <field>
+              <name>DEBUG_FIELD4_SEL</name>
+              <bitOffset>0</bitOffset>
+              <bitWidth>5</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>DEBUG_FIELD5_SEL</name>
+              <bitOffset>8</bitOffset>
+              <bitWidth>5</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>DEBUG_FIELD6_SEL</name>
+              <bitOffset>16</bitOffset>
+              <bitWidth>5</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>DEBUG_FIELD7_SEL</name>
+              <bitOffset>24</bitOffset>
+              <bitWidth>5</bitWidth>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>MAC_DATE</name>
+          <description>Version control register</description>
+          <addressOffset>0x18C</addressOffset>
           <size>0x20</size>
           <access>read-write</access>
           <resetValue>0x00000000</resetValue>

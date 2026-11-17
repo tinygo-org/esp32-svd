@@ -483,6 +483,24 @@
               <bitOffset>26</bitOffset>
               <bitWidth>2</bitWidth>
               <access>read-write</access>
+              <enumeratedValues>
+                <name>XPD_SAR1_FORCE</name>
+                <enumeratedValue>
+                  <name>FSM</name>
+                  <description>Use FSM to control power down</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>PD</name>
+                  <description>Force power down</description>
+                  <value>2</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>PU</name>
+                  <description>Force power up</description>
+                  <value>3</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
             <field>
               <name>XPD_SAR2_FORCE</name>
@@ -490,6 +508,7 @@
               <bitOffset>28</bitOffset>
               <bitWidth>2</bitWidth>
               <access>read-write</access>
+              <enumeratedValues derivedFrom="XPD_SAR1_FORCE"/>
             </field>
             <field>
               <name>WAIT_ARB_CYCLE</name>
@@ -645,10 +664,77 @@
           <size>0x20</size>
           <fields>
             <field>
-              <name>SAR1_PATT_TAB1</name>
-              <description>item 0 ~ 3 for pattern table 1 (each item one byte)</description>
+              <name>ITEM3_ATTEN</name>
               <bitOffset>0</bitOffset>
-              <bitWidth>24</bitWidth>
+              <bitWidth>2</bitWidth>
+              <access>read-write</access>
+              <enumeratedValues>
+                <name>ITEM3_ATTEN</name>
+                <enumeratedValue>
+                  <name>DB0</name>
+                  <description>No input attenuation, ADC can measure up to approx.</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>DB2_5</name>
+                  <description>The input voltage of ADC will be attenuated extending the range of measurement by about 2.5 dB</description>
+                  <value>1</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>DB6</name>
+                  <description>The input voltage of ADC will be attenuated extending the range of measurement by about 6 dB</description>
+                  <value>2</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>DB12</name>
+                  <description>The input voltage of ADC will be attenuated extending the range of measurement by about 12 dB</description>
+                  <value>3</value>
+                </enumeratedValue>
+              </enumeratedValues>
+            </field>
+            <field>
+              <name>ITEM0_ATTEN</name>
+              <bitOffset>18</bitOffset>
+              <bitWidth>2</bitWidth>
+              <access>read-write</access>
+              <enumeratedValues derivedFrom="ITEM3_ATTEN"/>
+            </field>
+            <field>
+              <name>ITEM0_CHANNEL</name>
+              <bitOffset>20</bitOffset>
+              <bitWidth>4</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>ITEM1_ATTEN</name>
+              <bitOffset>12</bitOffset>
+              <bitWidth>2</bitWidth>
+              <access>read-write</access>
+              <enumeratedValues derivedFrom="ITEM3_ATTEN"/>
+            </field>
+            <field>
+              <name>ITEM1_CHANNEL</name>
+              <bitOffset>14</bitOffset>
+              <bitWidth>4</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>ITEM2_ATTEN</name>
+              <bitOffset>6</bitOffset>
+              <bitWidth>2</bitWidth>
+              <access>read-write</access>
+              <enumeratedValues derivedFrom="ITEM3_ATTEN"/>
+            </field>
+            <field>
+              <name>ITEM2_CHANNEL</name>
+              <bitOffset>8</bitOffset>
+              <bitWidth>4</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>ITEM3_CHANNEL</name>
+              <bitOffset>2</bitOffset>
+              <bitWidth>4</bitWidth>
               <access>read-write</access>
             </field>
           </fields>
@@ -660,10 +746,77 @@
           <size>0x20</size>
           <fields>
             <field>
-              <name>SAR1_PATT_TAB2</name>
-              <description>Item 4 ~ 7 for pattern table 1 (each item one byte)</description>
+              <name>ITEM7_ATTEN</name>
               <bitOffset>0</bitOffset>
-              <bitWidth>24</bitWidth>
+              <bitWidth>2</bitWidth>
+              <access>read-write</access>
+              <enumeratedValues>
+                <name>ITEM7_ATTEN</name>
+                <enumeratedValue>
+                  <name>DB0</name>
+                  <description>No input attenuation, ADC can measure up to approx.</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>DB2_5</name>
+                  <description>The input voltage of ADC will be attenuated extending the range of measurement by about 2.5 dB</description>
+                  <value>1</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>DB6</name>
+                  <description>The input voltage of ADC will be attenuated extending the range of measurement by about 6 dB</description>
+                  <value>2</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>DB12</name>
+                  <description>The input voltage of ADC will be attenuated extending the range of measurement by about 12 dB</description>
+                  <value>3</value>
+                </enumeratedValue>
+              </enumeratedValues>
+            </field>
+            <field>
+              <name>ITEM4_ATTEN</name>
+              <bitOffset>18</bitOffset>
+              <bitWidth>2</bitWidth>
+              <access>read-write</access>
+              <enumeratedValues derivedFrom="ITEM7_ATTEN"/>
+            </field>
+            <field>
+              <name>ITEM4_CHANNEL</name>
+              <bitOffset>20</bitOffset>
+              <bitWidth>4</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>ITEM5_ATTEN</name>
+              <bitOffset>12</bitOffset>
+              <bitWidth>2</bitWidth>
+              <access>read-write</access>
+              <enumeratedValues derivedFrom="ITEM7_ATTEN"/>
+            </field>
+            <field>
+              <name>ITEM5_CHANNEL</name>
+              <bitOffset>14</bitOffset>
+              <bitWidth>4</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>ITEM6_ATTEN</name>
+              <bitOffset>6</bitOffset>
+              <bitWidth>2</bitWidth>
+              <access>read-write</access>
+              <enumeratedValues derivedFrom="ITEM7_ATTEN"/>
+            </field>
+            <field>
+              <name>ITEM6_CHANNEL</name>
+              <bitOffset>8</bitOffset>
+              <bitWidth>4</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>ITEM7_CHANNEL</name>
+              <bitOffset>2</bitOffset>
+              <bitWidth>4</bitWidth>
               <access>read-write</access>
             </field>
           </fields>
@@ -675,10 +828,77 @@
           <size>0x20</size>
           <fields>
             <field>
-              <name>SAR1_PATT_TAB3</name>
-              <description>Item 8 ~ 11 for pattern table 1 (each item one byte)</description>
+              <name>ITEM11_ATTEN</name>
               <bitOffset>0</bitOffset>
-              <bitWidth>24</bitWidth>
+              <bitWidth>2</bitWidth>
+              <access>read-write</access>
+              <enumeratedValues>
+                <name>ITEM11_ATTEN</name>
+                <enumeratedValue>
+                  <name>DB0</name>
+                  <description>No input attenuation, ADC can measure up to approx.</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>DB2_5</name>
+                  <description>The input voltage of ADC will be attenuated extending the range of measurement by about 2.5 dB</description>
+                  <value>1</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>DB6</name>
+                  <description>The input voltage of ADC will be attenuated extending the range of measurement by about 6 dB</description>
+                  <value>2</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>DB12</name>
+                  <description>The input voltage of ADC will be attenuated extending the range of measurement by about 12 dB</description>
+                  <value>3</value>
+                </enumeratedValue>
+              </enumeratedValues>
+            </field>
+            <field>
+              <name>ITEM8_ATTEN</name>
+              <bitOffset>18</bitOffset>
+              <bitWidth>2</bitWidth>
+              <access>read-write</access>
+              <enumeratedValues derivedFrom="ITEM11_ATTEN"/>
+            </field>
+            <field>
+              <name>ITEM8_CHANNEL</name>
+              <bitOffset>20</bitOffset>
+              <bitWidth>4</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>ITEM9_ATTEN</name>
+              <bitOffset>12</bitOffset>
+              <bitWidth>2</bitWidth>
+              <access>read-write</access>
+              <enumeratedValues derivedFrom="ITEM11_ATTEN"/>
+            </field>
+            <field>
+              <name>ITEM9_CHANNEL</name>
+              <bitOffset>14</bitOffset>
+              <bitWidth>4</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>ITEM10_ATTEN</name>
+              <bitOffset>6</bitOffset>
+              <bitWidth>2</bitWidth>
+              <access>read-write</access>
+              <enumeratedValues derivedFrom="ITEM11_ATTEN"/>
+            </field>
+            <field>
+              <name>ITEM10_CHANNEL</name>
+              <bitOffset>8</bitOffset>
+              <bitWidth>4</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>ITEM11_CHANNEL</name>
+              <bitOffset>2</bitOffset>
+              <bitWidth>4</bitWidth>
               <access>read-write</access>
             </field>
           </fields>
@@ -690,10 +910,77 @@
           <size>0x20</size>
           <fields>
             <field>
-              <name>SAR1_PATT_TAB4</name>
-              <description>Item 12 ~ 15 for pattern table 1 (each item one byte)</description>
+              <name>ITEM15_ATTEN</name>
               <bitOffset>0</bitOffset>
-              <bitWidth>24</bitWidth>
+              <bitWidth>2</bitWidth>
+              <access>read-write</access>
+              <enumeratedValues>
+                <name>ITEM15_ATTEN</name>
+                <enumeratedValue>
+                  <name>DB0</name>
+                  <description>No input attenuation, ADC can measure up to approx.</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>DB2_5</name>
+                  <description>The input voltage of ADC will be attenuated extending the range of measurement by about 2.5 dB</description>
+                  <value>1</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>DB6</name>
+                  <description>The input voltage of ADC will be attenuated extending the range of measurement by about 6 dB</description>
+                  <value>2</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>DB12</name>
+                  <description>The input voltage of ADC will be attenuated extending the range of measurement by about 12 dB</description>
+                  <value>3</value>
+                </enumeratedValue>
+              </enumeratedValues>
+            </field>
+            <field>
+              <name>ITEM12_ATTEN</name>
+              <bitOffset>18</bitOffset>
+              <bitWidth>2</bitWidth>
+              <access>read-write</access>
+              <enumeratedValues derivedFrom="ITEM15_ATTEN"/>
+            </field>
+            <field>
+              <name>ITEM12_CHANNEL</name>
+              <bitOffset>20</bitOffset>
+              <bitWidth>4</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>ITEM13_ATTEN</name>
+              <bitOffset>12</bitOffset>
+              <bitWidth>2</bitWidth>
+              <access>read-write</access>
+              <enumeratedValues derivedFrom="ITEM15_ATTEN"/>
+            </field>
+            <field>
+              <name>ITEM13_CHANNEL</name>
+              <bitOffset>14</bitOffset>
+              <bitWidth>4</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>ITEM14_ATTEN</name>
+              <bitOffset>6</bitOffset>
+              <bitWidth>2</bitWidth>
+              <access>read-write</access>
+              <enumeratedValues derivedFrom="ITEM15_ATTEN"/>
+            </field>
+            <field>
+              <name>ITEM14_CHANNEL</name>
+              <bitOffset>8</bitOffset>
+              <bitWidth>4</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>ITEM15_CHANNEL</name>
+              <bitOffset>2</bitOffset>
+              <bitWidth>4</bitWidth>
               <access>read-write</access>
             </field>
           </fields>
@@ -705,10 +992,77 @@
           <size>0x20</size>
           <fields>
             <field>
-              <name>SAR2_PATT_TAB1</name>
-              <description>item 0 ~ 3 for pattern table 2 (each item one byte)</description>
+              <name>ITEM3_ATTEN</name>
               <bitOffset>0</bitOffset>
-              <bitWidth>24</bitWidth>
+              <bitWidth>2</bitWidth>
+              <access>read-write</access>
+              <enumeratedValues>
+                <name>ITEM3_ATTEN</name>
+                <enumeratedValue>
+                  <name>DB0</name>
+                  <description>No input attenuation, ADC can measure up to approx.</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>DB2_5</name>
+                  <description>The input voltage of ADC will be attenuated extending the range of measurement by about 2.5 dB</description>
+                  <value>1</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>DB6</name>
+                  <description>The input voltage of ADC will be attenuated extending the range of measurement by about 6 dB</description>
+                  <value>2</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>DB12</name>
+                  <description>The input voltage of ADC will be attenuated extending the range of measurement by about 12 dB</description>
+                  <value>3</value>
+                </enumeratedValue>
+              </enumeratedValues>
+            </field>
+            <field>
+              <name>ITEM0_ATTEN</name>
+              <bitOffset>18</bitOffset>
+              <bitWidth>2</bitWidth>
+              <access>read-write</access>
+              <enumeratedValues derivedFrom="ITEM3_ATTEN"/>
+            </field>
+            <field>
+              <name>ITEM0_CHANNEL</name>
+              <bitOffset>20</bitOffset>
+              <bitWidth>4</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>ITEM1_ATTEN</name>
+              <bitOffset>12</bitOffset>
+              <bitWidth>2</bitWidth>
+              <access>read-write</access>
+              <enumeratedValues derivedFrom="ITEM3_ATTEN"/>
+            </field>
+            <field>
+              <name>ITEM1_CHANNEL</name>
+              <bitOffset>14</bitOffset>
+              <bitWidth>4</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>ITEM2_ATTEN</name>
+              <bitOffset>6</bitOffset>
+              <bitWidth>2</bitWidth>
+              <access>read-write</access>
+              <enumeratedValues derivedFrom="ITEM3_ATTEN"/>
+            </field>
+            <field>
+              <name>ITEM2_CHANNEL</name>
+              <bitOffset>8</bitOffset>
+              <bitWidth>4</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>ITEM3_CHANNEL</name>
+              <bitOffset>2</bitOffset>
+              <bitWidth>4</bitWidth>
               <access>read-write</access>
             </field>
           </fields>
@@ -720,10 +1074,77 @@
           <size>0x20</size>
           <fields>
             <field>
-              <name>SAR2_PATT_TAB2</name>
-              <description>Item 4 ~ 7 for pattern table 2 (each item one byte)</description>
+              <name>ITEM7_ATTEN</name>
               <bitOffset>0</bitOffset>
-              <bitWidth>24</bitWidth>
+              <bitWidth>2</bitWidth>
+              <access>read-write</access>
+              <enumeratedValues>
+                <name>ITEM7_ATTEN</name>
+                <enumeratedValue>
+                  <name>DB0</name>
+                  <description>No input attenuation, ADC can measure up to approx.</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>DB2_5</name>
+                  <description>The input voltage of ADC will be attenuated extending the range of measurement by about 2.5 dB</description>
+                  <value>1</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>DB6</name>
+                  <description>The input voltage of ADC will be attenuated extending the range of measurement by about 6 dB</description>
+                  <value>2</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>DB12</name>
+                  <description>The input voltage of ADC will be attenuated extending the range of measurement by about 12 dB</description>
+                  <value>3</value>
+                </enumeratedValue>
+              </enumeratedValues>
+            </field>
+            <field>
+              <name>ITEM4_ATTEN</name>
+              <bitOffset>18</bitOffset>
+              <bitWidth>2</bitWidth>
+              <access>read-write</access>
+              <enumeratedValues derivedFrom="ITEM7_ATTEN"/>
+            </field>
+            <field>
+              <name>ITEM4_CHANNEL</name>
+              <bitOffset>20</bitOffset>
+              <bitWidth>4</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>ITEM5_ATTEN</name>
+              <bitOffset>12</bitOffset>
+              <bitWidth>2</bitWidth>
+              <access>read-write</access>
+              <enumeratedValues derivedFrom="ITEM7_ATTEN"/>
+            </field>
+            <field>
+              <name>ITEM5_CHANNEL</name>
+              <bitOffset>14</bitOffset>
+              <bitWidth>4</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>ITEM6_ATTEN</name>
+              <bitOffset>6</bitOffset>
+              <bitWidth>2</bitWidth>
+              <access>read-write</access>
+              <enumeratedValues derivedFrom="ITEM7_ATTEN"/>
+            </field>
+            <field>
+              <name>ITEM6_CHANNEL</name>
+              <bitOffset>8</bitOffset>
+              <bitWidth>4</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>ITEM7_CHANNEL</name>
+              <bitOffset>2</bitOffset>
+              <bitWidth>4</bitWidth>
               <access>read-write</access>
             </field>
           </fields>
@@ -735,10 +1156,77 @@
           <size>0x20</size>
           <fields>
             <field>
-              <name>SAR2_PATT_TAB3</name>
-              <description>Item 8 ~ 11 for pattern table 2 (each item one byte)</description>
+              <name>ITEM11_ATTEN</name>
               <bitOffset>0</bitOffset>
-              <bitWidth>24</bitWidth>
+              <bitWidth>2</bitWidth>
+              <access>read-write</access>
+              <enumeratedValues>
+                <name>ITEM11_ATTEN</name>
+                <enumeratedValue>
+                  <name>DB0</name>
+                  <description>No input attenuation, ADC can measure up to approx.</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>DB2_5</name>
+                  <description>The input voltage of ADC will be attenuated extending the range of measurement by about 2.5 dB</description>
+                  <value>1</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>DB6</name>
+                  <description>The input voltage of ADC will be attenuated extending the range of measurement by about 6 dB</description>
+                  <value>2</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>DB12</name>
+                  <description>The input voltage of ADC will be attenuated extending the range of measurement by about 12 dB</description>
+                  <value>3</value>
+                </enumeratedValue>
+              </enumeratedValues>
+            </field>
+            <field>
+              <name>ITEM8_ATTEN</name>
+              <bitOffset>18</bitOffset>
+              <bitWidth>2</bitWidth>
+              <access>read-write</access>
+              <enumeratedValues derivedFrom="ITEM11_ATTEN"/>
+            </field>
+            <field>
+              <name>ITEM8_CHANNEL</name>
+              <bitOffset>20</bitOffset>
+              <bitWidth>4</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>ITEM9_ATTEN</name>
+              <bitOffset>12</bitOffset>
+              <bitWidth>2</bitWidth>
+              <access>read-write</access>
+              <enumeratedValues derivedFrom="ITEM11_ATTEN"/>
+            </field>
+            <field>
+              <name>ITEM9_CHANNEL</name>
+              <bitOffset>14</bitOffset>
+              <bitWidth>4</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>ITEM10_ATTEN</name>
+              <bitOffset>6</bitOffset>
+              <bitWidth>2</bitWidth>
+              <access>read-write</access>
+              <enumeratedValues derivedFrom="ITEM11_ATTEN"/>
+            </field>
+            <field>
+              <name>ITEM10_CHANNEL</name>
+              <bitOffset>8</bitOffset>
+              <bitWidth>4</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>ITEM11_CHANNEL</name>
+              <bitOffset>2</bitOffset>
+              <bitWidth>4</bitWidth>
               <access>read-write</access>
             </field>
           </fields>
@@ -750,10 +1238,77 @@
           <size>0x20</size>
           <fields>
             <field>
-              <name>SAR2_PATT_TAB4</name>
-              <description>Item 12 ~ 15 for pattern table 2 (each item one byte)</description>
+              <name>ITEM15_ATTEN</name>
               <bitOffset>0</bitOffset>
-              <bitWidth>24</bitWidth>
+              <bitWidth>2</bitWidth>
+              <access>read-write</access>
+              <enumeratedValues>
+                <name>ITEM15_ATTEN</name>
+                <enumeratedValue>
+                  <name>DB0</name>
+                  <description>No input attenuation, ADC can measure up to approx.</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>DB2_5</name>
+                  <description>The input voltage of ADC will be attenuated extending the range of measurement by about 2.5 dB</description>
+                  <value>1</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>DB6</name>
+                  <description>The input voltage of ADC will be attenuated extending the range of measurement by about 6 dB</description>
+                  <value>2</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>DB12</name>
+                  <description>The input voltage of ADC will be attenuated extending the range of measurement by about 12 dB</description>
+                  <value>3</value>
+                </enumeratedValue>
+              </enumeratedValues>
+            </field>
+            <field>
+              <name>ITEM12_ATTEN</name>
+              <bitOffset>18</bitOffset>
+              <bitWidth>2</bitWidth>
+              <access>read-write</access>
+              <enumeratedValues derivedFrom="ITEM15_ATTEN"/>
+            </field>
+            <field>
+              <name>ITEM12_CHANNEL</name>
+              <bitOffset>20</bitOffset>
+              <bitWidth>4</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>ITEM13_ATTEN</name>
+              <bitOffset>12</bitOffset>
+              <bitWidth>2</bitWidth>
+              <access>read-write</access>
+              <enumeratedValues derivedFrom="ITEM15_ATTEN"/>
+            </field>
+            <field>
+              <name>ITEM13_CHANNEL</name>
+              <bitOffset>14</bitOffset>
+              <bitWidth>4</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>ITEM14_ATTEN</name>
+              <bitOffset>6</bitOffset>
+              <bitWidth>2</bitWidth>
+              <access>read-write</access>
+              <enumeratedValues derivedFrom="ITEM15_ATTEN"/>
+            </field>
+            <field>
+              <name>ITEM14_CHANNEL</name>
+              <bitOffset>8</bitOffset>
+              <bitWidth>4</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>ITEM15_CHANNEL</name>
+              <bitOffset>2</bitOffset>
+              <bitWidth>4</bitWidth>
               <access>read-write</access>
             </field>
           </fields>
@@ -9716,7 +10271,7 @@ SCL positive edge for a stop condition</description>
             </field>
             <field>
               <name>TX_EOF_MODE</name>
-              <description>write this bit to ser the bitscrambler tx core EOF signal generating mode which is combined with reg_bitscrambler_tx_tailing_bits, 0: counter by read dma fifo, 0 counter by write peripheral buffer</description>
+              <description>Selects how TX counts trailing bits after input EOF. 0: count bits read from the DMA FIFO. 1: count bits written to the peripheral buffer.</description>
               <bitOffset>3</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
@@ -9788,7 +10343,7 @@ SCL positive edge for a stop condition</description>
             </field>
             <field>
               <name>RX_EOF_MODE</name>
-              <description>write this bit to ser the bitscrambler rx core EOF signal generating mode which is combined with reg_bitscrambler_rx_tailing_bits, 0: counter by read peripheral buffer, 0 counter by write dma fifo</description>
+              <description>Selects how RX counts trailing bits after input EOF. 0: count bits read from the peripheral buffer. 1: count bits written to the DMA FIFO.</description>
               <bitOffset>3</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
@@ -43640,21 +44195,21 @@ SCL positive edge for a stop condition</description>
               <access>read-write</access>
             </field>
             <field>
-              <name>BITSRAMBLER_SYS_CLK_EN</name>
+              <name>BITSCRAMBLER_SYS_CLK_EN</name>
               <description>Reserved</description>
               <bitOffset>28</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>BITSRAMBLER_RX_SYS_CLK_EN</name>
+              <name>BITSCRAMBLER_RX_SYS_CLK_EN</name>
               <description>Reserved</description>
               <bitOffset>29</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>BITSRAMBLER_TX_SYS_CLK_EN</name>
+              <name>BITSCRAMBLER_TX_SYS_CLK_EN</name>
               <description>Reserved</description>
               <bitOffset>30</bitOffset>
               <bitWidth>1</bitWidth>
@@ -45746,6 +46301,24 @@ SCL positive edge for a stop condition</description>
               <bitOffset>30</bitOffset>
               <bitWidth>2</bitWidth>
               <access>read-write</access>
+              <enumeratedValues>
+                <name>ADC_CLK_SRC_SEL</name>
+                <enumeratedValue>
+                  <name>XTAL</name>
+                  <description>ADC_DIGI_CLK_SRC_XTAL</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>RC_FAST</name>
+                  <description>ADC_DIGI_CLK_SRC_RC_FAST</description>
+                  <value>1</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>PLL_F80M</name>
+                  <description>ADC_DIGI_CLK_SRC_PLL_F80M</description>
+                  <value>2</value>
+                </enumeratedValue>
+              </enumeratedValues>
             </field>
           </fields>
         </register>
@@ -46850,21 +47423,21 @@ SCL positive edge for a stop condition</description>
               <access>read-write</access>
             </field>
             <field>
-              <name>RST_EN_BITSRAMBLER</name>
+              <name>RST_EN_BITSCRAMBLER</name>
               <description>Reserved</description>
               <bitOffset>11</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>RST_EN_BITSRAMBLER_RX</name>
+              <name>RST_EN_BITSCRAMBLER_RX</name>
               <description>Reserved</description>
               <bitOffset>12</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>RST_EN_BITSRAMBLER_TX</name>
+              <name>RST_EN_BITSCRAMBLER_TX</name>
               <description>Reserved</description>
               <bitOffset>13</bitOffset>
               <bitWidth>1</bitWidth>
@@ -47349,21 +47922,21 @@ SCL positive edge for a stop condition</description>
               <access>read-write</access>
             </field>
             <field>
-              <name>FORCE_NORST_BITSRAMBLER</name>
+              <name>FORCE_NORST_BITSCRAMBLER</name>
               <description>Reserved</description>
               <bitOffset>23</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>FORCE_NORST_BITSRAMBLER_RX</name>
+              <name>FORCE_NORST_BITSCRAMBLER_RX</name>
               <description>Reserved</description>
               <bitOffset>24</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>FORCE_NORST_BITSRAMBLER_TX</name>
+              <name>FORCE_NORST_BITSCRAMBLER_TX</name>
               <description>Reserved</description>
               <bitOffset>25</bitOffset>
               <bitWidth>1</bitWidth>
@@ -103922,46 +104495,25 @@ IDINTEN[4]: DU Interrupt.</description>
           <description>MSPI-MMU item content register</description>
           <addressOffset>0x37C</addressOffset>
           <size>0x20</size>
-          <resetValue>0x0000037C</resetValue>
+          <resetValue>0x00000000</resetValue>
           <fields>
             <field>
               <name>PADDR</name>
               <description>Physical page number</description>
               <bitOffset>0</bitOffset>
-              <bitWidth>10</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>ACCESS_SPIRAM</name>
-              <description>Map to SPIRAM/PSRAM when set (flash when clear)</description>
-              <bitOffset>10</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>SPIRAM_VALID</name>
-              <description>Entry is valid when set (SPIRAM MMU)</description>
-              <bitOffset>11</bitOffset>
-              <bitWidth>1</bitWidth>
+              <bitWidth>11</bitWidth>
               <access>read-write</access>
             </field>
             <field>
               <name>VALID</name>
-              <description>Entry is valid when set (flash MMU)</description>
-              <bitOffset>12</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>SPIRAM_SENSITIVE</name>
-              <description>Decrypt via cache encryption when set (SPIRAM MMU)</description>
+              <description>Entry is valid when set</description>
               <bitOffset>12</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
               <name>SENSITIVE</name>
-              <description>Decrypt via flash encryption when set (flash MMU)</description>
+              <description>Decrypt via flash encryption when set</description>
               <bitOffset>13</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
@@ -107824,6 +108376,7 @@ IDINTEN[4]: DU Interrupt.</description>
           <name>MMU_ITEM_CONTENT</name>
           <addressOffset>0x37C</addressOffset>
           <size>0x20</size>
+          <resetValue>0x00000000</resetValue>
           <fields>
             <field>
               <name>PADDR</name>
@@ -107840,30 +108393,16 @@ IDINTEN[4]: DU Interrupt.</description>
               <access>read-write</access>
             </field>
             <field>
-              <name>SPIRAM_VALID</name>
-              <description>Entry is valid when set (SPIRAM MMU)</description>
+              <name>VALID</name>
+              <description>Entry is valid when set</description>
               <bitOffset>11</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>VALID</name>
-              <description>Entry is valid when set (flash MMU)</description>
-              <bitOffset>12</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>SPIRAM_SENSITIVE</name>
-              <description>Decrypt via cache encryption when set (SPIRAM MMU)</description>
-              <bitOffset>12</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
               <name>SENSITIVE</name>
-              <description>Decrypt via flash encryption when set (flash MMU)</description>
-              <bitOffset>13</bitOffset>
+              <description>Decrypt via cache encryption when set</description>
+              <bitOffset>12</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>

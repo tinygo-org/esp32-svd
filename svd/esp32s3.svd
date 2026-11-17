@@ -550,11 +550,28 @@
           <resetValue>0xFFFCE030</resetValue>
           <fields>
             <field>
-              <name>WIFI_CLK_EN</name>
-              <description>******* Description ***********</description>
-              <bitOffset>0</bitOffset>
-              <bitWidth>32</bitWidth>
-              <access>read-write</access>
+              <name>I2C_CLK_EN</name>
+              <description>Set this bit to enable the I2C clock. Clear the bit to disable it.</description>
+              <bitOffset>5</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            <field>
+              <name>UNUSED_BIT12</name>
+              <description>Unused clock enable bit. ESP-IDF clears it during peripheral clock initialization.</description>
+              <bitOffset>12</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            <field>
+              <name>SDIO_HOST_CLK_EN</name>
+              <description>Set this bit to enable the SD/MMC host clock. Clear the bit to disable it.</description>
+              <bitOffset>13</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            <field>
+              <name>RNG_CLK_EN</name>
+              <description>Set this bit to enable the RNG clock. Clear the bit to disable it.</description>
+              <bitOffset>15</bitOffset>
+              <bitWidth>1</bitWidth>
             </field>
           </fields>
         </register>
@@ -2372,7 +2389,7 @@
           <dimIncrement>0x90</dimIncrement>
           <dimIndex>0-1</dimIndex>
           <name>CPU%s</name>
-          <description>Cluster CPU%s, containing CORE_?_AREA_DRAM0_0_MAX, CORE_?_AREA_DRAM0_0_MIN, CORE_?_AREA_DRAM0_1_MAX, CORE_?_AREA_DRAM0_1_MIN, CORE_?_AREA_PC, CORE_?_AREA_PIF_0_MAX, CORE_?_AREA_PIF_0_MIN, CORE_?_AREA_PIF_1_MAX, CORE_?_AREA_PIF_1_MIN, CORE_?_AREA_SP, CORE_?_DRAM0_EXCEPTION_MONITOR_0, CORE_?_DRAM0_EXCEPTION_MONITOR_1, CORE_?_DRAM0_EXCEPTION_MONITOR_2, CORE_?_DRAM0_EXCEPTION_MONITOR_3, CORE_?_DRAM0_EXCEPTION_MONITOR_4, CORE_?_DRAM0_EXCEPTION_MONITOR_5, CORE_?_INTR_CLR, CORE_?_INTR_ENA, CORE_?_INTR_RAW, CORE_?_IRAM0_EXCEPTION_MONITOR_0, CORE_?_IRAM0_EXCEPTION_MONITOR_1, CORE_?_MONTR_ENA, CORE_?_RCD_PDEBUGDATA, CORE_?_RCD_PDEBUGENABLE, CORE_?_RCD_PDEBUGINST, CORE_?_RCD_PDEBUGLS0ADDR, CORE_?_RCD_PDEBUGLS0DATA, CORE_?_RCD_PDEBUGLS0STAT, CORE_?_RCD_PDEBUGPC, CORE_?_RCD_PDEBUGSTATUS, CORE_?_RCD_RECORDING, CORE_?_RCD_SP, CORE_?_SP_MAX, CORE_?_SP_MIN, CORE_?_SP_PC, CORE_?_SP_UNSTABLE</description>
+          <description>Cluster CPU%s, containing CORE_?_AREA_DRAM0_0_MAX, CORE_?_AREA_DRAM0_0_MIN, CORE_?_AREA_DRAM0_1_MAX, CORE_?_AREA_DRAM0_1_MIN, CORE_?_AREA_PIF_0_MAX, CORE_?_AREA_PIF_0_MIN, CORE_?_AREA_PIF_1_MAX, CORE_?_AREA_PIF_1_MIN, CORE_?_DRAM0_EXCEPTION_MONITOR_0, CORE_?_DRAM0_EXCEPTION_MONITOR_1, CORE_?_DRAM0_EXCEPTION_MONITOR_2, CORE_?_DRAM0_EXCEPTION_MONITOR_3, CORE_?_DRAM0_EXCEPTION_MONITOR_4, CORE_?_DRAM0_EXCEPTION_MONITOR_5, CORE_?_INTR_CLR, CORE_?_INTR_ENA, CORE_?_INTR_RAW, CORE_?_IRAM0_EXCEPTION_MONITOR_0, CORE_?_IRAM0_EXCEPTION_MONITOR_1, CORE_?_MONTR_ENA, CORE_?_RCD_PDEBUGDATA, CORE_?_RCD_PDEBUGENABLE, CORE_?_RCD_PDEBUGINST, CORE_?_RCD_PDEBUGLS0ADDR, CORE_?_RCD_PDEBUGLS0DATA, CORE_?_RCD_PDEBUGLS0STAT, CORE_?_RCD_PDEBUGPC, CORE_?_RCD_PDEBUGSTATUS, CORE_?_RCD_RECORDING, CORE_?_RCD_SP, CORE_?_SP_MAX, CORE_?_SP_MIN, CORE_?_SP_PC, CORE_?_SP_UNSTABLE</description>
           <addressOffset>0x0</addressOffset>
           <register>
             <name>AREA_DRAM0_0_MAX</name>
@@ -2437,21 +2454,6 @@
             </fields>
           </register>
           <register>
-            <name>AREA_PC</name>
-            <description>core0 area pc status register</description>
-            <addressOffset>0x34</addressOffset>
-            <size>0x20</size>
-            <fields>
-              <field>
-                <name>AREA_PC</name>
-                <description>the PC when first touch region monitor interrupt</description>
-                <bitOffset>0</bitOffset>
-                <bitWidth>32</bitWidth>
-                <access>read-only</access>
-              </field>
-            </fields>
-          </register>
-          <register>
             <name>AREA_PIF_0_MAX</name>
             <description>core0 PIF region0 addr configuration register</description>
             <addressOffset>0x24</addressOffset>
@@ -2510,22 +2512,6 @@
                 <bitOffset>0</bitOffset>
                 <bitWidth>32</bitWidth>
                 <access>read-write</access>
-              </field>
-            </fields>
-          </register>
-          <register>
-            <name>AREA_SP</name>
-            <description>core0 area sp status register</description>
-            <addressOffset>0x30</addressOffset>
-            <size>0x20</size>
-            <resetValue>0xFFFFFFFF</resetValue>
-            <fields>
-              <field>
-                <name>AREA_SP</name>
-                <description>the stackpointer when first touch region monitor interrupt</description>
-                <bitOffset>0</bitOffset>
-                <bitWidth>32</bitWidth>
-                <access>read-only</access>
               </field>
             </fields>
           </register>
@@ -3274,6 +3260,68 @@
             </fields>
           </register>
         </cluster>
+        <register>
+          <name>CORE_0_AREA_SP</name>
+          <description>core0 area sp status register</description>
+          <addressOffset>0x30</addressOffset>
+          <size>0x20</size>
+          <resetValue>0xFFFFFFFF</resetValue>
+          <fields>
+            <field>
+              <name>AREA_SP</name>
+              <description>the stackpointer when first touch region monitor interrupt</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>32</bitWidth>
+              <access>read-only</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>CORE_0_AREA_PC</name>
+          <description>core0 area pc status register</description>
+          <addressOffset>0x34</addressOffset>
+          <size>0x20</size>
+          <fields>
+            <field>
+              <name>AREA_PC</name>
+              <description>the PC when first touch region monitor interrupt</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>32</bitWidth>
+              <access>read-only</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>CORE_1_AREA_PC</name>
+          <description>core1 area pc status register</description>
+          <addressOffset>0xC0</addressOffset>
+          <size>0x20</size>
+          <fields>
+            <field>
+              <name>AREA_PC</name>
+              <description>the PC when first touch region monitor interrupt</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>32</bitWidth>
+              <access>read-only</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>CORE_1_AREA_SP</name>
+          <description>core1 area sp status register</description>
+          <addressOffset>0xC4</addressOffset>
+          <size>0x20</size>
+          <resetValue>0x00000000</resetValue>
+          <fields>
+            <field>
+              <name>AREA_SP</name>
+              <description>the stackpointer when first touch region monitor interrupt</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>32</bitWidth>
+              <access>read-only</access>
+            </field>
+          </fields>
+        </register>
         <register>
           <dim>2</dim>
           <dimIncrement>0x4</dimIncrement>

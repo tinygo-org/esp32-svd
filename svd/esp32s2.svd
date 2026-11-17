@@ -29379,6 +29379,54 @@ I2C_COMD0_REG in Chapter I²C Controller</description>
           <resetValue>0xFFFCE030</resetValue>
           <fields>
             <field>
+              <name>SDIOSLAVE_CLK_EN</name>
+              <description>Set this bit to enable the SDIO slave clock. Clear the bit to disable it.</description>
+              <bitOffset>4</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            <field>
+              <name>UNUSED_BIT5</name>
+              <description>Unused clock enable bit. ESP-IDF clears it during peripheral clock initialization.</description>
+              <bitOffset>5</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            <field>
+              <name>BT_BASEBAND_CLK_EN</name>
+              <description>Set this bit to enable the Bluetooth baseband clock. Clear the bit to disable it.</description>
+              <bitOffset>11</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            <field>
+              <name>UNUSED_BIT12</name>
+              <description>Unused clock enable bit. ESP-IDF clears it during peripheral clock initialization.</description>
+              <bitOffset>12</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            <field>
+              <name>SDIO_HOST_CLK_EN</name>
+              <description>Set this bit to enable the SD/MMC host clock. Clear the bit to disable it.</description>
+              <bitOffset>13</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            <field>
+              <name>EMAC_CLK_EN</name>
+              <description>Set this bit to enable the Ethernet MAC clock. Clear the bit to disable it.</description>
+              <bitOffset>14</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            <field>
+              <name>RNG_CLK_EN</name>
+              <description>Set this bit to enable the RNG clock. Clear the bit to disable it.</description>
+              <bitOffset>15</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            <field>
+              <name>BT_LC_CLK_EN</name>
+              <description>Set these bits to enable the Bluetooth link controller clocks. Clear the bits to disable them.</description>
+              <bitOffset>16</bitOffset>
+              <bitWidth>2</bitWidth>
+            </field>
+            <field>
               <name>MAC_CLK_EN</name>
               <description>Set this bit to enable MAC module clock. Clear the bit to disable MAC module clock.</description>
               <bitOffset>18</bitOffset>

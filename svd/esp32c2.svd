@@ -239,11 +239,16 @@
           <resetValue>0xFFFCE030</resetValue>
           <fields>
             <field>
-              <name>WIFI_CLK_EN</name>
-              <description>reg_wifi_clk_en</description>
-              <bitOffset>0</bitOffset>
-              <bitWidth>32</bitWidth>
-              <access>read-write</access>
+              <name>UNUSED_BIT5</name>
+              <description>Unused clock enable bit. ESP-IDF clears it during peripheral clock initialization.</description>
+              <bitOffset>5</bitOffset>
+              <bitWidth>1</bitWidth>
+            </field>
+            <field>
+              <name>UNUSED_BIT12</name>
+              <description>Unused clock enable bit. ESP-IDF clears it during peripheral clock initialization.</description>
+              <bitOffset>12</bitOffset>
+              <bitWidth>1</bitWidth>
             </field>
           </fields>
         </register>

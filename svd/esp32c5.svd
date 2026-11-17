@@ -3738,7 +3738,7 @@ Only valid for DMA-AES operation.</description>
             </field>
             <field>
               <name>TX_EOF_MODE</name>
-              <description>write this bit to ser the bitscrambler tx core EOF signal generating mode which is combined with reg_bitscrambler_tx_tailing_bits, 0: counter by read dma fifo, 0 counter by write peripheral buffer</description>
+              <description>Selects how TX counts trailing bits after input EOF. 0: count bits read from the DMA FIFO. 1: count bits written to the peripheral buffer.</description>
               <bitOffset>3</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
@@ -3810,7 +3810,7 @@ Only valid for DMA-AES operation.</description>
             </field>
             <field>
               <name>RX_EOF_MODE</name>
-              <description>write this bit to ser the bitscrambler rx core EOF signal generating mode which is combined with reg_bitscrambler_rx_tailing_bits, 0: counter by read peripheral buffer, 0 counter by write dma fifo</description>
+              <description>Selects how RX counts trailing bits after input EOF. 0: count bits read from the peripheral buffer. 1: count bits written to the DMA FIFO.</description>
               <bitOffset>3</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
@@ -7144,19 +7144,76 @@ Other: Inactive status\\</description>
               <bitWidth>16</bitWidth>
               <access>read-write</access>
             </field>
+          </fields>
+        </register>
+        <register>
+          <name>ECDSA</name>
+          <description>eFuse ECDSA key configuration register.</description>
+          <addressOffset>0x1D0</addressOffset>
+          <size>0x20</size>
+          <fields>
             <field>
-              <name>CFG_ECDSA_BLK</name>
-              <description>Configures which block to use for ECDSA key output.</description>
-              <bitOffset>16</bitOffset>
+              <name>CFG_ECDSA_P192_BLK</name>
+              <description>Configures which block to use for ECDSA P192 key output.</description>
+              <bitOffset>0</bitOffset>
               <bitWidth>4</bitWidth>
               <access>read-write</access>
+            </field>
+            <field>
+              <name>CFG_ECDSA_P256_BLK</name>
+              <description>Configures which block to use for ECDSA P256 key output.</description>
+              <bitOffset>4</bitOffset>
+              <bitWidth>4</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>CFG_ECDSA_P384_L_BLK</name>
+              <description>Configures which block to use for ECDSA P384 key low part output.</description>
+              <bitOffset>8</bitOffset>
+              <bitWidth>4</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>CFG_ECDSA_P384_H_BLK</name>
+              <description>Configures which block to use for ECDSA P384 key high part output.</description>
+              <bitOffset>12</bitOffset>
+              <bitWidth>4</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>CUR_ECDSA_P192_BLK</name>
+              <description>Represents which block is used for ECDSA P192 key output.</description>
+              <bitOffset>16</bitOffset>
+              <bitWidth>4</bitWidth>
+              <access>read-only</access>
+            </field>
+            <field>
+              <name>CUR_ECDSA_P256_BLK</name>
+              <description>Represents which block is used for ECDSA P256 key output.</description>
+              <bitOffset>20</bitOffset>
+              <bitWidth>4</bitWidth>
+              <access>read-only</access>
+            </field>
+            <field>
+              <name>CUR_ECDSA_P384_L_BLK</name>
+              <description>Represents which block is used for ECDSA P384 key low part output.</description>
+              <bitOffset>24</bitOffset>
+              <bitWidth>4</bitWidth>
+              <access>read-only</access>
+            </field>
+            <field>
+              <name>CUR_ECDSA_P384_H_BLK</name>
+              <description>Represents which block is used for ECDSA P384 key high part output.</description>
+              <bitOffset>28</bitOffset>
+              <bitWidth>4</bitWidth>
+              <access>read-only</access>
             </field>
           </fields>
         </register>
         <register>
           <name>STATUS</name>
           <description>eFuse status register.</description>
-          <addressOffset>0x1D0</addressOffset>
+          <addressOffset>0x1D4</addressOffset>
           <size>0x20</size>
           <fields>
             <field>
@@ -7215,19 +7272,12 @@ Other: Inactive status\\</description>
               <bitWidth>10</bitWidth>
               <access>read-only</access>
             </field>
-            <field>
-              <name>CUR_ECDSA_BLK</name>
-              <description>Indicates which block is used for ECDSA key output.</description>
-              <bitOffset>20</bitOffset>
-              <bitWidth>4</bitWidth>
-              <access>read-only</access>
-            </field>
           </fields>
         </register>
         <register>
           <name>CMD</name>
           <description>eFuse command register.</description>
-          <addressOffset>0x1D4</addressOffset>
+          <addressOffset>0x1D8</addressOffset>
           <size>0x20</size>
           <fields>
             <field>
@@ -7256,7 +7306,7 @@ Other: Inactive status\\</description>
         <register>
           <name>INT_RAW</name>
           <description>eFuse raw interrupt register.</description>
-          <addressOffset>0x1D8</addressOffset>
+          <addressOffset>0x1DC</addressOffset>
           <size>0x20</size>
           <fields>
             <field>
@@ -7278,7 +7328,7 @@ Other: Inactive status\\</description>
         <register>
           <name>INT_ST</name>
           <description>eFuse interrupt status register.</description>
-          <addressOffset>0x1DC</addressOffset>
+          <addressOffset>0x1E0</addressOffset>
           <size>0x20</size>
           <fields>
             <field>
@@ -7300,7 +7350,7 @@ Other: Inactive status\\</description>
         <register>
           <name>INT_ENA</name>
           <description>eFuse interrupt enable register.</description>
-          <addressOffset>0x1E0</addressOffset>
+          <addressOffset>0x1E4</addressOffset>
           <size>0x20</size>
           <fields>
             <field>
@@ -7322,7 +7372,7 @@ Other: Inactive status\\</description>
         <register>
           <name>INT_CLR</name>
           <description>eFuse interrupt clear register.</description>
-          <addressOffset>0x1E4</addressOffset>
+          <addressOffset>0x1E8</addressOffset>
           <size>0x20</size>
           <fields>
             <field>
@@ -7346,7 +7396,7 @@ Other: Inactive status\\</description>
         <register>
           <name>DAC_CONF</name>
           <description>Controls the eFuse programming voltage.</description>
-          <addressOffset>0x1E8</addressOffset>
+          <addressOffset>0x1EC</addressOffset>
           <size>0x20</size>
           <resetValue>0x0001FE17</resetValue>
           <fields>
@@ -7383,7 +7433,7 @@ Other: Inactive status\\</description>
         <register>
           <name>RD_TIM_CONF</name>
           <description>Configures read timing parameters.</description>
-          <addressOffset>0x1EC</addressOffset>
+          <addressOffset>0x1F0</addressOffset>
           <size>0x20</size>
           <resetValue>0x16010201</resetValue>
           <fields>
@@ -7420,7 +7470,7 @@ Other: Inactive status\\</description>
         <register>
           <name>WR_TIM_CONF1</name>
           <description>Configurarion register 1 of eFuse programming timing parameters.</description>
-          <addressOffset>0x1F0</addressOffset>
+          <addressOffset>0x1F4</addressOffset>
           <size>0x20</size>
           <resetValue>0x01300001</resetValue>
           <fields>
@@ -7450,7 +7500,7 @@ Other: Inactive status\\</description>
         <register>
           <name>WR_TIM_CONF2</name>
           <description>Configurarion register 2 of eFuse programming timing parameters.</description>
-          <addressOffset>0x1F4</addressOffset>
+          <addressOffset>0x1F8</addressOffset>
           <size>0x20</size>
           <resetValue>0x00C80190</resetValue>
           <fields>
@@ -7473,7 +7523,7 @@ Other: Inactive status\\</description>
         <register>
           <name>WR_TIM_CONF0_RS_BYPASS</name>
           <description>Configurarion register0 of eFuse programming time parameters and rs bypass operation.</description>
-          <addressOffset>0x1F8</addressOffset>
+          <addressOffset>0x1FC</addressOffset>
           <size>0x20</size>
           <resetValue>0x00002000</resetValue>
           <fields>
@@ -23066,21 +23116,6 @@ Measurement unit: i2c_sclk \\</description>
           </fields>
         </register>
         <register>
-          <name>RNG_DATA</name>
-          <description>RNG result register</description>
-          <addressOffset>0x8</addressOffset>
-          <size>0x20</size>
-          <fields>
-            <field>
-              <name>RND_DATA</name>
-              <description>get rng data</description>
-              <bitOffset>0</bitOffset>
-              <bitWidth>32</bitWidth>
-              <access>read-only</access>
-            </field>
-          </fields>
-        </register>
-        <register>
           <name>CPU</name>
           <description>configure lp cpu dbg enable</description>
           <addressOffset>0xC</addressOffset>
@@ -23283,7 +23318,7 @@ Bit(1): enable rtc timer after crc</description>
           </fields>
         </register>
         <register>
-          <name>RNG_DATA_SYNC</name>
+          <name>RNG_DATA</name>
           <description>rng result sync register</description>
           <addressOffset>0x28</addressOffset>
           <size>0x20</size>
@@ -55064,7 +55099,7 @@ This option should be used together with RSA_SEARCH_POS_REG.</description>
           <description>MSPI-MMU item content register</description>
           <addressOffset>0x37C</addressOffset>
           <size>0x20</size>
-          <resetValue>0x0000037C</resetValue>
+          <resetValue>0x00000000</resetValue>
           <fields>
             <field>
               <name>PADDR</name>
