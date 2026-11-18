@@ -2306,7 +2306,7 @@ Only valid for DMA-AES operation.</description>
     <peripheral>
       <name>AHB_DMA</name>
       <description>AHB_DMA Peripheral</description>
-      <groupName>DMA</groupName>
+      <groupName>AHB_DMA</groupName>
       <baseAddress>0x50085000</baseAddress>
       <addressBlock>
         <offset>0x0</offset>
@@ -7635,7 +7635,7 @@ SCL positive edge for a stop condition</description>
     <peripheral>
       <name>AXI_DMA</name>
       <description>AXI_DMA Peripheral</description>
-      <groupName>DMA</groupName>
+      <groupName>AXI_DMA</groupName>
       <baseAddress>0x5008A000</baseAddress>
       <addressBlock>
         <offset>0x0</offset>
@@ -51320,7 +51320,7 @@ Measurement unit: i2c_sclk \\</description>
     <peripheral>
       <name>I2S1</name>
       <description>I2S (Inter-IC Sound) Controller 1</description>
-      <groupName>I2S</groupName>
+      <groupName>I2S1</groupName>
       <baseAddress>0x500C7000</baseAddress>
       <interrupt>
         <name>I2S1</name>
@@ -51338,7 +51338,7 @@ Measurement unit: i2c_sclk \\</description>
     <peripheral>
       <name>I2S2</name>
       <description>I2S (Inter-IC Sound) Controller 2</description>
-      <groupName>I2S</groupName>
+      <groupName>I2S2</groupName>
       <baseAddress>0x500C8000</baseAddress>
       <interrupt>
         <name>I2S2</name>
@@ -55188,7 +55188,7 @@ Measurement unit: i2c_sclk \\</description>
     <peripheral>
       <name>ICM_AXI_QOS</name>
       <description>AXI ICM QoS indirect-access window (base + 0x400)</description>
-      <groupName>ICM_AXI</groupName>
+      <groupName>ICM_AXI_QOS</groupName>
       <baseAddress>0x500A4400</baseAddress>
       <addressBlock>
         <offset>0x0</offset>
@@ -104713,7 +104713,7 @@ IDINTEN[4]: DU Interrupt.</description>
     <peripheral>
       <name>SPI1</name>
       <description>SPI (Serial Peripheral Interface) Controller 1</description>
-      <groupName>SPI</groupName>
+      <groupName>SPI1</groupName>
       <baseAddress>0x5008D000</baseAddress>
       <addressBlock>
         <offset>0x0</offset>
@@ -109698,7 +109698,7 @@ IDINTEN[4]: DU Interrupt.</description>
     <peripheral>
       <name>SPI2</name>
       <description>SPI (Serial Peripheral Interface) Controller 2</description>
-      <groupName>SPI</groupName>
+      <groupName>SPI2</groupName>
       <baseAddress>0x500D0000</baseAddress>
       <addressBlock>
         <offset>0x0</offset>
@@ -118395,7 +118395,7 @@ protection is enabled.</description>
     <peripheral>
       <name>GMAC_DMA</name>
       <description>Ethernet DMA configuration and control registers</description>
-      <groupName>GMAC</groupName>
+      <groupName>GMAC_DMA</groupName>
       <baseAddress>0x50099000</baseAddress>
       <addressBlock>
         <offset>0x0</offset>

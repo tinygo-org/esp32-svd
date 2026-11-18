@@ -7474,7 +7474,7 @@ alternate-channel scan mode.</description>
     <peripheral>
       <name>FE2</name>
       <description>FE2 Peripheral</description>
-      <groupName>FE</groupName>
+      <groupName>FE2</groupName>
       <baseAddress>0x3F405000</baseAddress>
       <addressBlock>
         <offset>0x0</offset>

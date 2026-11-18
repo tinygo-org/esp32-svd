@@ -5933,7 +5933,7 @@
     <peripheral>
       <name>GMAC_DMA</name>
       <description>Ethernet DMA configuration and control registers</description>
-      <groupName>GMAC</groupName>
+      <groupName>GMAC_DMA</groupName>
       <baseAddress>0x3FF69000</baseAddress>
       <addressBlock>
         <offset>0x0</offset>

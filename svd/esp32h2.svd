@@ -348,7 +348,7 @@
     <peripheral>
       <name>PLIC_UX</name>
       <description>PLIC Peripheral</description>
-      <groupName>PLIC</groupName>
+      <groupName>PLIC_UX</groupName>
       <baseAddress>0x20001400</baseAddress>
       <addressBlock>
         <offset>0x0</offset>
@@ -41649,7 +41649,7 @@ This option should be used together with RSA_SEARCH_POS.</description>
     <peripheral>
       <name>SPI1</name>
       <description>SPI (Serial Peripheral Interface) Controller 1</description>
-      <groupName>SPI</groupName>
+      <groupName>SPI1</groupName>
       <baseAddress>0x60003000</baseAddress>
       <addressBlock>
         <offset>0x0</offset>
@@ -44101,7 +44101,7 @@ This option should be used together with RSA_SEARCH_POS.</description>
     <peripheral>
       <name>SPI2</name>
       <description>SPI (Serial Peripheral Interface) Controller 2</description>
-      <groupName>SPI</groupName>
+      <groupName>SPI2</groupName>
       <baseAddress>0x60081000</baseAddress>
       <addressBlock>
         <offset>0x0</offset>
